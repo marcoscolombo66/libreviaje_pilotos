@@ -1,0 +1,48 @@
+
+<ion-content ><ion-grid>
+<ion-row>
+  <ion-col ></ion-col>
+  <ion-col style="min-width:350px;">
+
+<ion-card class="ionCardLogin">
+    <ion-card-header>
+      <ion-card-title class="isCSS">
+        <img src='https://libreviaje.com/images/logo_top_new.png' style="text-align:left;width:50%;height:50%;"/>
+      </ion-card-title>
+    </ion-card-header>
+
+      <form #form="ngForm" (ngSubmit)='login3(form)' method="post">
+    <ion-card-content>
+
+      <ion-card-header>
+      <ion-card-title class="etiqueta">USUARIO</ion-card-title>
+      <ion-card-title class="etiqueta"><ion-input ngModel type="email" name="usuario" placeholder="Ingresa tu email" required></ion-input></ion-card-title>
+
+
+
+
+
+
+      <ion-card-title class="etiqueta">CONTRASEÑA</ion-card-title>
+      <ion-card-title class="etiqueta"><ion-input placeholder="Ingresa tu contraseña" ngModel type="password" name="password" required></ion-input></ion-card-title>
+
+      <ion-card-title style="text-align: center;"><ion-button type="submit" fill="outline" class="botones" shape="round">VIAJAR</ion-button></ion-card-title>
+      <ion-card-sub-title class="isCSS" routerLink="/registro">
+      <p>&nbsp;</p>
+      <p>  Si no tenes cuenta, podés <span style="text-decoration:underline;font-weight:solid;cursor: pointer;">registrarte</span></p>
+      </ion-card-sub-title>
+      <ion-card-sub-title class="isCSS" routerLink="/olvido">
+        <p>&nbsp;</p>
+        <p>  <span style="text-decoration:underline;font-weight:solid;cursor: pointer;"> ¿Olvidaste tu contraseña? </span></p>
+        </ion-card-sub-title>
+
+
+
+</ion-card-header>
+      </ion-card-content>
+  </form>
+    </ion-card>
+</ion-col>
+<ion-col></ion-col>
+</ion-row></ion-grid>
+</ion-content>

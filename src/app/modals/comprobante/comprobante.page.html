@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Subir comprobante</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+
+    <ion-card-header class="etiqueta">
+      <ion-card-title style="text-align:center;">
+      </ion-card-title>
+
+      <div *ngIf="!isSelected">
+
+        <input
+           type="file"
+           (change)="selectFileToUpload($event)">
+     </div>
+    </ion-card-header>
+    <ion-card-content>
+
+      <div *ngIf="isSelected">
+        <ion-button  shape="round" expand="block" fill="outline"
+           (click)="uploadFile()">Guardar</ion-button>
+
+           <!-- Display the selected image -->
+        <img [src]="image">
+     </div>
+    </ion-card-content>
+  </ion-card>
+
+
+
+
+
+
+
+
+
+
+ </ion-content>

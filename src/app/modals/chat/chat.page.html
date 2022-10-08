@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Chat</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cancel()"><ion-icon name="close"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="nomostrar">
+<ion-grid  *ngFor="let consulta of chats">
+<ion-row *ngIf="consulta.TIPO_USUARIO==='PILOTO'" class="container">
+  <ion-col>
+    <div class="message info"> <img alt="" class="img-circle medium-image"
+      src="https://libreviaje.com/images/{{consulta.FOTO_PILOTO}}">
+      <div class="message-body">
+        <div class="message-info"><h4> {{consulta.PILOTO}}</h4><h5> <ion-icon name="time" class="fa fa-clock-o"></ion-icon> {{consulta.FECHA_HORA}}</h5></div><hr>
+        <div class="message-text"> {{consulta.MENSAJE}}</div>
+      </div> <br>
+    </div>
+  </ion-col>
+</ion-row>
+
+
+<ion-row *ngIf="consulta.TIPO_USUARIO==='PASAJERO'" class="container darker">
+  <ion-col>
+   <div class="message my-message"><img alt="" class="img-circle medium-image"
+      src="https://libreviaje.com/images/{{consulta.FOTO_PASAJERO}}">
+      <div class="message-body">
+        <div class="message-body-inner">
+          <div class="message-info"><h4> {{consulta.PASAJERO}}</h4><h5>
+            <ion-icon name="time" class="fa fa-clock-o"></ion-icon> {{consulta.FECHA_HORA}}</h5></div><hr>
+          <div class="message-text"> {{consulta.MENSAJE}}</div>
+        </div>
+      </div> <br>
+    </div>
+  </ion-col>
+</ion-row>
+
+
+
+      </ion-grid>
+    <ion-grid>
+      <ion-row>
+
+ <form [formGroup]= "myForm"  novalidate>
+  <ion-col><div class="chat-footer">
+    <textarea class="send-message-text" formControlName="mensaje"></textarea>
+    <button type="button" class="send-message-button btn-info" (click)="enviaMensaje()">
+        <ion-icon name="send"></ion-icon>
+      </button>
+    </div></ion-col>
+  </form>
+</ion-row>
+        </ion-grid>
+</ion-content>

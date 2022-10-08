@@ -1,0 +1,41 @@
+
+<ion-content ><ion-grid>
+  <ion-row>
+    <ion-col ></ion-col>
+    <ion-col style="min-width:350px;">
+
+  <ion-card class="ionCardLogin">
+      <ion-card-header>
+        <ion-card-title class="isCSS">
+          <img src='https://libreviaje.com/images/logo_top_new.png' style="text-align:left;width:50%;height:50%;"/>
+        </ion-card-title>
+      </ion-card-header>
+
+        <form [formGroup]="myForm" (ngSubmit)='recordar()' method="post">
+      <ion-card-content>
+
+        <ion-card-header>
+        <ion-card-title class="etiqueta">EMAIL</ion-card-title>
+        <ion-card-title class="etiqueta"><ion-input ngModel type="email" formControlName="usuario" placeholder="Ingresa tu email para resetear contraseña" required></ion-input></ion-card-title>
+
+
+        <ion-card-title style="text-align: center;"><ion-button type="submit" fill="outline" class="botones" shape="round">RESETEAR</ion-button></ion-card-title>
+        <ion-card-sub-title class="isCSS" routerLink="/registro">
+        <p>&nbsp;</p>
+        <p>  Si no tenes cuenta, podés <span style="text-decoration:underline;font-weight:solid;cursor: pointer;">registrarte</span></p>
+        </ion-card-sub-title>
+        <ion-card-sub-title class="isCSS" style="text-align: center;"routerLink="/login">
+          <p>&nbsp;</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span style="text-align:center;text-decoration:underline;font-weight:solid;cursor: pointer;"> Iniciar sesión </span></p>
+          </ion-card-sub-title>
+
+
+
+  </ion-card-header>
+        </ion-card-content>
+    </form>
+      </ion-card>
+  </ion-col>
+  <ion-col></ion-col>
+  </ion-row></ion-grid>
+  </ion-content>

@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    &nbsp;
+      <img src='https://libreviaje.com/images/logo_top_new.png'
+      style="padding-top: 5px; padding-bottom: 2px; width: 20%; height: 20%;max-width:87px;max-height:43px"/>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content><ion-grid>
+  <ion-row>
+    <ion-col ></ion-col>
+    <ion-col style="min-width:350px;">
+<ion-card class="ionCardLogin">
+<form [formGroup]="registroForm" (submit)="guardar()">
+  <ion-card-content>
+
+    <ion-card-header>
+    <ion-row (click)="subirFotoPerfil();" style="cursor: pointer;">
+      <ion-col>
+        <img   src="https://libreviaje.com/images/{{FOTO_PERFIL}}" class="img-circle medium-image"/>
+        <ion-icon name="camera"></ion-icon>&nbsp;
+       </ion-col>
+    </ion-row>
+
+
+
+        <ion-card-title class="etiqueta">
+          <ion-row>
+            <ion-col class="etiqueta" size="6">NOMBRE Y APELLIDO</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="etiqueta" size="6"><ion-input formControlName="nombre" placeholder="Ingresar nombre"></ion-input></ion-col>
+          </ion-row>
+        </ion-card-title>
+
+        <ion-card-title class="etiqueta">
+          <ion-row>
+            <ion-col class="etiqueta" size="6">WHATSAPP</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="etiqueta" size="6"><ion-input formControlName="whatsapp" placeholder="Ingresar whatsapp"></ion-input></ion-col>
+          </ion-row>
+        </ion-card-title>
+
+        <ion-card-title class="etiqueta">
+          <ion-row>
+            <ion-col class="etiqueta" size="12">
+              <ion-button class="botones" shape="round"  type="submit">
+                <ion-icon name="save-outline"></ion-icon>&nbsp;GUARDAR</ion-button>
+            </ion-col>
+          </ion-row>
+
+        </ion-card-title>
+
+
+</ion-card-header>
+    </ion-card-content>
+
+
+
+</form>
+
+</ion-card>
+
+</ion-col>
+<ion-col></ion-col>
+</ion-row></ion-grid>
+</ion-content>

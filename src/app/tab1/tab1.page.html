@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    &nbsp;
+      <img src='https://libreviaje.com/images/logo_top_new.png'
+      style="padding-top: 5px; padding-bottom: 2px; width: 20%; height: 20%;max-width:87px;max-height:43px"/>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+   <ion-slides  [options]="{  slidesPerView:1, autoplay: {delay: 2500} }" *ngIf="ver!==false">
+    <ion-slide *ngFor="let consulta of viajesDisponibles">
+      <ion-card class="ionCard">
+        <img src="https://libreviaje.com/admin/assets/uploads/files/{{consulta.FOTO_PERFIL}}" class="avatar"/>
+        <ion-card-header>
+          <ion-card-title color="primary">{{consulta.NOMBRE_APELLIDO}}</ion-card-title>
+          <ion-card-title class="estrellita">
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+            <ion-icon name="star-sharp"></ion-icon>
+          </ion-card-title>
+          <ion-card-subtitle><ion-icon name="locate"></ion-icon>&nbsp; {{consulta.SALIDA}}</ion-card-subtitle>
+            <ion-card-subtitle><ion-icon name="airplane-sharp"></ion-icon>&nbsp;
+              {{consulta.DESTINO}}</ion-card-subtitle>
+            <ion-card-subtitle><ion-icon name="calendar-outline"></ion-icon>&nbsp;
+              {{consulta.DIA_HORA |  date:'dd' }} de {{consulta.DIA_HORA |  date:'MMM' }}
+              de {{consulta.DIA_HORA |  date:'yyyy' }} - {{consulta.DIA_HORA | date:'HH:mm'}}hs.
+            </ion-card-subtitle>
+
+        </ion-card-header>
+        <ion-card-content class="ion-card-content-class">
+         <!-- Podria ir algo...-->
+         </ion-card-content>
+         <ion-card-content>
+          <ion-button shape="round" fill="outline" class="botones"
+          (click)="presentModal(consulta.DESTINO,consulta.PRECIO,consulta.FOTO_DESTINO,consulta.ASIENTOS,consulta.idPILOTOS_DESTINOS,consulta.DIA_HORA,consulta.SALIDA)">VER</ion-button>
+          </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>
+
