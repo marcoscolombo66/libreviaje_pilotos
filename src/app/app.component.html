@@ -9,27 +9,27 @@
     <ion-content>
 
       <ion-list ><ion-card>
-        <ion-item routerLink="tab1">
+        <ion-item routerLink="tab1" (click)="closeMenu();">
           <ion-icon slot="start"  name="airplane-sharp" color="secondary"></ion-icon>
           <span class="menu_inicio">SALIDAS</span>
         </ion-item>
 
-        <ion-item routerLink="tab3">
+        <ion-item routerLink="tab3" (click)="closeMenu();">
           <ion-icon slot="start"  name="bag-check-sharp" color="secondary"></ion-icon>
           <span class="menu_inicio">RESERVAS</span>
         </ion-item>
 
-         <ion-item routerLink="tab4">
+         <ion-item routerLink="tab4" (click)="closeMenu();">
           <ion-icon slot="start"  name="person-sharp" color="secondary"></ion-icon>
           <span class="menu_inicio">MI PERFIL</span>
         </ion-item>
 
-        <ion-item routerLink="home">
+        <ion-item routerLink="home" (click)="closeMenu();">
           <ion-icon slot="start"  name="information-circle-sharp" color="secondary"></ion-icon>
           <span class="menu_inicio">AYUDA</span>
         </ion-item>
 
-        <ion-item routerLink="cerrar">
+        <ion-item routerLink="cerrar" (click)="closeMenu();">
           <ion-icon slot="start"  name="log-out-sharp" color="secondary"></ion-icon>
           <span class="menu_inicio">SALIR</span>
         </ion-item>
