@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Platform, NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Observable, Subject, asapScheduler, pipe, of, from, interval, merge, fromEvent } from 'rxjs';
 @Injectable({
   providedIn: 'root'
@@ -42,6 +42,16 @@ export class IniciarusuarioService {
      //this.authService.login(form.value.usuario, form.value.password);
  //this.https.get(this.urlVar);
  return this.httpClient.get('https://api.bluelytics.com.ar/v2/latest');
+  }
+
+public getLugares(){
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  const headers: any		= new HttpHeaders({'Content-Type' : 'application/octet-stream'});
+  const options: any		= {};
+   return (this.httpClient.post('https://www.libreviaje.com/admin/index.php/Api5/getLugares/',
+        JSON.stringify(options), headers));
+        //probar crear otra consulta q devuelva valores location y stopover en api php.
+
   }
 
   }

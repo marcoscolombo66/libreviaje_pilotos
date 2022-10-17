@@ -50,6 +50,10 @@ const routes: Routes = [
   },  {
     path: 'olvido',
     loadChildren: () => import('./olvido/olvido.module').then( m => m.OlvidoPageModule)
+  },
+  {
+    path: 'nuevo',
+    loadChildren: () => import('./vuelos/nuevo/nuevo.module').then( m => m.NuevoPageModule)
   }
 
 
