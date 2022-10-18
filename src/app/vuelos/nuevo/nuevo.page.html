@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    &nbsp;
+      <img src='https://libreviaje.com/images/logo_top_new.png'
+      style="padding-top: 5px; padding-bottom: 2px; width: 20%; height: 20%;max-width:87px;max-height:43px"/>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content><ion-grid>
+  <ion-row>
+    <ion-col ></ion-col>
+    <ion-col style="min-width:350px;">
+<ion-card class="ionCardLogin">
+<form [formGroup]="registroForm" (submit)="guardar()">
+  <ion-card-content>
+
+    <ion-card-header>
+      <ion-card-title class="etiqueta">
+          <ion-row>
+            <ion-col class="etiqueta" size="6">SALIDA</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="etiqueta" size="6">
+            <ion-list>
+              <ion-item>
+                <ion-select formControlName="salida" interface="action-sheet" placeholder="Select fruit">
+                  <ion-select-option *ngFor="let lugar of lugares" [value]="lugar">{{lugar.DESCRIPCION}}</ion-select-option>
+
+                </ion-select>
+              </ion-item>
+            </ion-list>
+            </ion-col>
+          </ion-row>
+      </ion-card-title>
+      <ion-card-title class="etiqueta">
+        <ion-row>
+          <ion-col class="etiqueta" size="6">DESTINO</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="etiqueta" size="6">
+          <ion-list>
+            <ion-item>
+              <ion-select formControlName="destino" interface="action-sheet" placeholder="Select fruit">
+                <ion-select-option *ngFor="let lugar of lugares" [value]="lugar">{{lugar.DESCRIPCION}}</ion-select-option>
+
+              </ion-select>
+            </ion-item>
+          </ion-list>
+          </ion-col>
+        </ion-row>
+    </ion-card-title>
+
+
+
+        <ion-card-title class="etiqueta">
+          <ion-row>
+            <ion-col class="etiqueta" size="12">
+              <ion-button class="botones" shape="round"  type="submit">
+                <ion-icon name="save-outline"></ion-icon>&nbsp;GUARDAR</ion-button>
+            </ion-col>
+          </ion-row>
+
+        </ion-card-title>
+
+
+</ion-card-header>
+    </ion-card-content>
+
+
+
+</form>
+
+</ion-card>
+
+</ion-col>
+<ion-col></ion-col>
+</ion-row></ion-grid>
+</ion-content>
