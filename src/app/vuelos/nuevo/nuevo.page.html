@@ -66,7 +66,21 @@
           </ion-list>
           </ion-col>
         </ion-row>
+        <ion-row>
+          <ion-col class="etiqueta" size="6">AVION</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="etiqueta" size="6">
+          <ion-list>
+            <ion-item>
+              <ion-select  [(ngModel)]="avion" interface="action-sheet" placeholder="¿En qué avion vas a volar?">
+                <ion-select-option *ngFor="let avion of aviones" [value]="avion">{{avion.MARCA}} - {{avion.MODELO}}</ion-select-option>
 
+              </ion-select>
+            </ion-item>
+          </ion-list>
+          </ion-col>
+        </ion-row>
         <ion-row>
           <ion-col class="etiqueta" size="6">CANTIDAD DE ASIENTOS</ion-col>
         </ion-row>

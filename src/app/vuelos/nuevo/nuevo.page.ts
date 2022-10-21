@@ -22,6 +22,7 @@ export class NuevoPage implements OnInit {
   precio: any;
   asientos: any;
   lugares: any;
+  avion: any;
   bandera: any;
   idUSUARIO: any;
   emailUSUARIO: any;
@@ -42,6 +43,7 @@ export class NuevoPage implements OnInit {
   ngOnInit() {
     this.inicia.verificar();
     this.getLugares();
+    this.getAviones();
   }
   getLugares(){
     const respuesta= this.inicia.getLugares();
@@ -54,6 +56,18 @@ export class NuevoPage implements OnInit {
      }
      );
 }
+
+getAviones(){
+  const respuesta= this.inicia.getAviones();
+  respuesta.subscribe(
+    (res: any) => {
+      this.aviones= res;
+   },
+   (error: any) =>{
+    console.log(error);
+   }
+   );
+}
   guardar(){
     this.bandera='';
     if (this.salida===undefined){
@@ -65,6 +79,9 @@ export class NuevoPage implements OnInit {
     if (this.asientos===undefined){
        this.bandera+='- Asientos<br/>';
       }
+      if (this.avion===undefined){
+        this.bandera+='- Avion<br/>';
+       }
     if (this.precio===undefined){
        this.bandera+='- Precio<br/>';
       }
@@ -77,17 +94,18 @@ export class NuevoPage implements OnInit {
       else{
         //aca se guarda
         this.presentToast('Se guardo correctamente. Gracias!'+this.bandera,2000,'checkmark','sucess-toast');
-     this.guardarEnBase(this.dateValue,this.salida,this.destino,this.asientos,this.precio);
+     this.guardarEnBase(this.dateValue,this.salida,this.destino,this.asientos,this.precio,this.avion);
      this.dateValue=undefined;
      this.salida=undefined;
      this.destino=undefined;
      this.asientos=undefined;
+     this.avion=undefined;
      this.precio=undefined;
      this.bandera='';
       }
 
   }
-  async guardarEnBase(date,salida,destino,asientos,precio){
+  async guardarEnBase(date,salida,destino,asientos,precio,avion){
     console.log(destino);
     //destino.DESCRIPCION
     this.idUSUARIO= await this.inicia.getUser();
@@ -106,8 +124,7 @@ export class NuevoPage implements OnInit {
           // eslint-disable-next-line @typescript-eslint/naming-convention
           idDESTINOS: destino.idDESTINOS,
           DIA_HORA: date,
-          //idAVIONES: this.aviones,
-          idAVIONES:1,
+          idAVIONES: avion.idAVIONES,
           ASIENTOS: asientos,
           PRECIO: precio,
           emailUSUARIO: this.emailUSUARIO,

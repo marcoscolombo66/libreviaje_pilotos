@@ -53,6 +53,14 @@ public getLugares(){
         //probar crear otra consulta q devuelva valores location y stopover en api php.
 
   }
+  public getAviones(){
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    const headers: any		= new HttpHeaders({'Content-Type' : 'application/octet-stream'});
+    const options: any		= {};
+     return (this.httpClient.post('https://www.libreviaje.com/admin/index.php/Api5/getAviones/',
+          JSON.stringify(options), headers));
+          //probar crear otra consulta q devuelva valores location y stopover en api php.
 
+    }
   }
 
