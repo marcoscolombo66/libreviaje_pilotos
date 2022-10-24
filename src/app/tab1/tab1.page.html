@@ -10,10 +10,11 @@
 </ion-header>
 
 <ion-content>
+
    <ion-slides  [options]="{  slidesPerView:1, autoplay: {delay: 2500} }" *ngIf="ver!==false">
     <ion-slide *ngFor="let consulta of viajesDisponibles">
       <ion-card class="ionCard">
-        <img src="https://libreviaje.com/admin/assets/uploads/files/{{consulta.FOTO_PERFIL}}" class="avatar"/>
+        <img src="https://libreviaje.com/images/{{consulta.FOTO_PERFIL}}" class="avatar"/>
         <ion-card-header>
           <ion-card-title color="primary">{{consulta.NOMBRE_APELLIDO}}</ion-card-title>
           <ion-card-title class="estrellita">
@@ -35,12 +36,16 @@
          <!-- Podria ir algo...-->
          </ion-card-content>
          <ion-card-content>
-          <ion-button shape="round" fill="outline" class="botones"
-          (click)="presentModal(consulta.DESTINO,consulta.PRECIO,consulta.FOTO_DESTINO,consulta.ASIENTOS,consulta.idPILOTOS_DESTINOS,consulta.DIA_HORA,consulta.SALIDA)">VER</ion-button>
-          </ion-card-content>
+          <ion-button shape="round" fill="outline" class="botones" *ngIf="showBoton===true"
+          (click)="presentModal(consulta.DESTINO,consulta.PRECIO,consulta.FOTO_DESTINO,
+          consulta.ASIENTOS,consulta.ASIENTOS_ORIGEN,consulta.idPILOTOS_DESTINOS,consulta.DIA_HORA,
+          consulta.SALIDA,consulta.idAVIONES,consulta.MARCA,consulta.MODELO)">EDITAR</ion-button>
+          <ion-label *ngIf="showBoton===false">Podrás republicar después de la fecha.</ion-label>
+        </ion-card-content>
       </ion-card>
     </ion-slide>
   </ion-slides>
+
 
 </ion-content>
 

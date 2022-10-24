@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { FotoperfilPage } from './../modals/fotoperfil/fotoperfil.page';
 import { Component, OnInit } from '@angular/core';
 import { IniciarusuarioService } from '../iniciarusuario.service';
@@ -34,6 +35,7 @@ export class Tab4Page implements OnInit {
 
     this.registroForm = this.fb.group({
       nombre:['',[Validators.required,Validators.minLength(3)]],
+      mensaje_bienvenida:['',[Validators.required,Validators.minLength(3)]],
       whatsapp:['',[Validators.required,Validators.minLength(10),Validators.required,Validators.pattern('^-?[0-9]\\d*(\\.\\d{1,2})?$')]]
     });
 
@@ -74,6 +76,7 @@ console.log('dato',this.registroForm.value.whatsapp);
           // eslint-disable-next-line @typescript-eslint/naming-convention
           TELEFONO: this.registroForm.value.whatsapp,
           // eslint-disable-next-line @typescript-eslint/naming-convention
+          MENSAJE_BIENVENIDA: this.registroForm.value.mensaje_bienvenida,
          idPILOTOS: this.idUSUARIO
          };
         //options 	: any		= { "idNEGOCIOS": '1' };

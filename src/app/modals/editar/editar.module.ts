@@ -4,17 +4,17 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ReservarPageRoutingModule } from './reservar-routing.module';
+import { EditarPageRoutingModule } from './editar-routing.module';
 
-import { ReservarPage } from './reservar.page';
+import { EditarPage } from './editar.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,ReactiveFormsModule,
     IonicModule,
-    ReservarPageRoutingModule
+    EditarPageRoutingModule
   ],
-  declarations: [ReservarPage]
+  declarations: [EditarPage]
 })
-export class ReservarPageModule {}
+export class EditarPageModule {}

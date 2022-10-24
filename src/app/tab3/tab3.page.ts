@@ -57,7 +57,7 @@ const numbers = interval(20000);
   }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // eslint-disable-next-line @typescript-eslint/naming-convention
-async abrirChat(idPILOTOS_RESERVAS,idPILOTOS,idUSUARIO,EMAIL_PILOTO,NOMBRE_PASAJERO) {
+async abrirChat(idPILOTOS_RESERVAS,idPILOTOS,idUSUARIO,EMAIL_PASAJERO,NOMBRE_PILOTO) {
 
   const modal = await this.modalCtrl.create({
     component: ChatPage,
@@ -68,8 +68,8 @@ async abrirChat(idPILOTOS_RESERVAS,idPILOTOS,idUSUARIO,EMAIL_PILOTO,NOMBRE_PASAJ
       mySubject: idPILOTOS_RESERVAS,
       mySubject2: idPILOTOS,
       mySubject3: idUSUARIO,
-      mySubject4: EMAIL_PILOTO,
-      mySubject5: NOMBRE_PASAJERO,
+      mySubject4: EMAIL_PASAJERO,
+      mySubject5: NOMBRE_PILOTO,
     },
     animated: true,
     canDismiss: true,
@@ -85,15 +85,15 @@ async abrirChat(idPILOTOS_RESERVAS,idPILOTOS,idUSUARIO,EMAIL_PILOTO,NOMBRE_PASAJ
     const headers: any		= new HttpHeaders({'Content-Type' : 'application/octet-stream'});
 
     this.idUSUARIO= await this.inicia.getUser();
-        this.idUSUARIO=this.idUSUARIO['0'].idUSUARIO;
+        this.idUSUARIO=this.idUSUARIO['0'].idPILOTOS;
 
     const options: any		= {
       //idNEGOCIOS,
-      idUSUARIO: this.idUSUARIO
+      idPILOTOS: this.idUSUARIO
      };
     //options 	: any		= { "idNEGOCIOS": '1' };
 
-     (this.http.post('https://www.libreviaje.com/admin/index.php/Api4/getReservasDisponibles/',
+     (this.http.post('https://www.libreviaje.com/admin/index.php/Api5/getReservasDisponibles/',
     JSON.stringify(options), headers))
 
 

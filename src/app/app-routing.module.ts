@@ -20,8 +20,8 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'reservar',
-    loadChildren: () => import('./modals/reservar/reservar.module').then( m => m.ReservarPageModule)
+    path: 'editar',
+    loadChildren: () => import('./modals/editar/editar.module').then( m => m.EditarPageModule)
   },
 
   {
@@ -47,7 +47,8 @@ const routes: Routes = [
   {
     path: 'fotoperfil',
     loadChildren: () => import('./modals/fotoperfil/fotoperfil.module').then( m => m.FotoperfilPageModule)
-  },  {
+  },
+  {
     path: 'olvido',
     loadChildren: () => import('./olvido/olvido.module').then( m => m.OlvidoPageModule)
   },

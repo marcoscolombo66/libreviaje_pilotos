@@ -49,6 +49,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'nuevo',
+        children: [
+          {
+            path: '',
+          loadChildren: () => import('../vuelos/nuevo/nuevo.module').then(m => m.NuevoPageModule)
+          },
+        ]
+      },
+      {
         path: 'cerrar',
         children: [
           {

@@ -70,22 +70,22 @@ getAviones(){
 }
   guardar(){
     this.bandera='';
-    if (this.salida===undefined){
+    if (this.salida===undefined || this.salida===null){
        this.bandera='- Salida<br/>';
       }
-    if (this.destino===undefined){
+    if (this.destino===undefined || this.destino===null){
        this.bandera+='- Destino<br/>';
       }
-    if (this.asientos===undefined){
+    if (this.asientos===undefined || this.asientos===null){
        this.bandera+='- Asientos<br/>';
       }
-      if (this.avion===undefined){
+      if (this.avion===undefined || this.avion===null){
         this.bandera+='- Avion<br/>';
        }
-    if (this.precio===undefined){
+    if (this.precio===undefined || this.precio===null){
        this.bandera+='- Precio<br/>';
       }
-    if (this.dateValue===undefined){
+    if (this.dateValue===undefined || this.dateValue===null){
        this.bandera+='- Fecha y horario<br/>';
       }
       if(this.bandera!==''){

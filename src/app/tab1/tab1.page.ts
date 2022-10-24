@@ -1,4 +1,5 @@
-import { ReservarPage } from './../modals/reservar/reservar.page';
+/* eslint-disable @typescript-eslint/naming-convention */
+import { EditarPage } from '../modals/editar/editar.page';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
@@ -9,8 +10,8 @@ import { BehaviorSubject } from 'rxjs';
 import { IniciarusuarioService } from '../iniciarusuario.service';
 import { interval} from 'rxjs';
 import { ToastController, NavController } from '@ionic/angular';
-
-
+import { MenuController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
 @Component({
   selector: 'app-tab1',
   templateUrl: './tab1.page.html',
@@ -33,19 +34,20 @@ export class Tab1Page implements OnInit {
   choice2: any;
   diaHora: any;
   salida: any;
-valor: any;
-lugar: any;
+  valor: any;
+  lugar: any;
+
+  idUSUARIO: any;
+  FECHA_HORA: any;
+
+  showBoton: any;
   constructor(
-    public fb: FormBuilder, public http: HttpClient,
+    public fb: FormBuilder, public http: HttpClient,public Str: Storage,
     private route: ActivatedRoute,public alertController: AlertController,
-    private modalCtrl: ModalController,
+    private modalCtrl: ModalController,public menuCtrl: MenuController,
     public inicia: IniciarusuarioService, public navCtrl: NavController)
   {
-    this.registroForm = this.fb.group({
 
-      patente:['',[Validators.required,Validators.minLength(6)]],
-      barrios:['',[Validators.required]]
-    });
 
 
 
@@ -55,11 +57,15 @@ lugar: any;
     });
 
   }
-
-  async presentModal(value,destino,fotodestino,cantAsientos,idpilotosdestinos,diaHora,salida) {
+  closeMenu() {
+    this.getViajesDisponibles();
+    this.menuCtrl.close();
+  }
+  async presentModal(value,destino,fotodestino,cantAsientos,cantAsientosOrigen,
+    idpilotosdestinos,diaHora,salida,idaviones,txtaviones,txtavionesMod) {
 
     const modal = await this.modalCtrl.create({
-      component: ReservarPage,
+      component: EditarPage,
       //breakpoints: [0, 0.95],
       //initialBreakpoint: 0.95,
       //handle: true,
@@ -68,6 +74,10 @@ lugar: any;
         mySubject2: destino,
         mySubject3: fotodestino,
         mySubject4: cantAsientos,
+        mySubject8: cantAsientosOrigen,
+        mySubject9: idaviones,
+        mySubject10: txtaviones,
+        mySubject11: txtavionesMod,
         mySubject5: idpilotosdestinos,
         mySubject6: diaHora,
         mySubject7: salida
@@ -83,14 +93,29 @@ lugar: any;
 
     this.inicia.verificar();
     this.getViajesDisponibles();
-    /*const numbers = interval(5000);
-    numbers.subscribe(()=>{
-      this.getViajesDisponibles();
-    });*/
+
   }
 
+   padTo2Digits(num) {
+    return num.toString().padStart(2, '0');
+  }
 
-  getViajesDisponibles()
+   formatDate(date) {
+    return (
+      [
+        date.getFullYear(),
+        this.padTo2Digits(date.getMonth() + 1),
+        this.padTo2Digits(date.getDate()),
+      ].join('-') +
+      ' ' +
+      [
+        this.padTo2Digits(date.getHours()),
+        this.padTo2Digits(date.getMinutes()),
+        this.padTo2Digits(date.getSeconds()),
+      ].join(':')
+    );
+  }
+  async getViajesDisponibles()
   {
     this.ver=false;
     // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -98,13 +123,11 @@ lugar: any;
 
     //const BUSQUEDA: any=this.registroForm.value.busqueda;
 
-    const options: any		= {
-      //idNEGOCIOS,
-      //busqueda: BUSQUEDA
-     };
-    //options 	: any		= { "idNEGOCIOS": '1' };
+    this.idUSUARIO= await this.inicia.getUser();
+    this.idUSUARIO=this.idUSUARIO['0'].idPILOTOS;
+    const options: any		= { idPILOTOS: '1' };
 
-     (this.http.post('https://www.libreviaje.com/admin/index.php/Api4/getViajesDisponibles/',
+     (this.http.post('https://www.libreviaje.com/admin/index.php/Api5/getViajesDisponibles/',
     JSON.stringify(options), headers))
 
 
@@ -112,10 +135,25 @@ lugar: any;
 
     .subscribe(
      (res: any) => {
-      this.viajesDisponibles=res;
-      this.ver=true;
-      //console.log('viajes disponibles',this.viajesDisponibles);
-    },
+
+      if (!res) {
+        this.ver=false;
+    } else {
+        this.viajesDisponibles = res;
+        this.ver=true;
+        // Aquí solo asigna el valor llegado a tu variable declarada
+        this.okok = res[0].DIA_HORA;
+        const fechauno = this.formatDate(new Date());
+        if (this.okok<fechauno){
+          this.showBoton=false;
+        }
+        else{
+          this.showBoton=true;
+        }
+        console.log('fecha actual', fechauno );
+        console.log('fecha base', this.okok );
+    }
+      },
     (error: any) =>{
      //console.log('error',error);
      //this.presentAlert(' ¡Atención! ','Este vehiculo no esta registrado en el barrio.','Se recomienda llamar al 101');

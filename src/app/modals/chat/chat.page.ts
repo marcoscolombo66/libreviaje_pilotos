@@ -16,8 +16,8 @@ export class ChatPage implements OnInit {
   idPILOTOS_RESERVAS: any;
   idUSUARIO: any;
   idPILOTOS: any;
-  EMAIL_PILOTO: any;
-  NOMBRE_PASAJERO: any;
+  EMAIL_PASAJERO: any;
+  NOMBRE_PILOTO: any;
   isModalOpen = false;
   // eslint-disable-next-line @typescript-eslint/naming-convention
 
@@ -58,8 +58,8 @@ export class ChatPage implements OnInit {
     this.idPILOTOS_RESERVAS = this.navParams.get('mySubject');
     this.idPILOTOS = this.navParams.get('mySubject2');
     this.idUSUARIO = this.navParams.get('mySubject3');
-    this.EMAIL_PILOTO = this.navParams.get('mySubject4');
-    this.NOMBRE_PASAJERO = this.navParams.get('mySubject5');
+    this.EMAIL_PASAJERO = this.navParams.get('mySubject4');
+    this.NOMBRE_PILOTO = this.navParams.get('mySubject5');
 
     const options: any		= {
       //idNEGOCIOS,
@@ -68,15 +68,15 @@ export class ChatPage implements OnInit {
       // eslint-disable-next-line @typescript-eslint/naming-convention
       MENSAJE: this.myForm.value.mensaje,
       // eslint-disable-next-line @typescript-eslint/naming-convention
-      TIPO_USUARIO: 'PASAJERO',
+      TIPO_USUARIO: 'PILOTO',
       // eslint-disable-next-line @typescript-eslint/naming-convention
       idPILOTOS_RESERVAS: this.idPILOTOS_RESERVAS,
       idPILOTOS: this.idPILOTOS,
-      EMAIL_PILOTO: this.EMAIL_PILOTO,
-      NOMBRE_PASAJERO: this.NOMBRE_PASAJERO,
+      EMAIL_PASAJERO: this.EMAIL_PASAJERO,
+      NOMBRE_PILOTO: this.NOMBRE_PILOTO,
      };
     //options 	: any		= { "idNEGOCIOS": '1' };
-     (this.http.post('https://www.libreviaje.com/admin/index.php/Api4/addMensajeChat/',
+     (this.http.post('https://www.libreviaje.com/admin/index.php/Api5/addMensajeChat/',
     JSON.stringify(options), headers))
     //probar crear otra consulta q devuelva valores location y stopover en api php.
     .subscribe(
@@ -111,7 +111,7 @@ export class ChatPage implements OnInit {
       idPILOTOS_RESERVAS: this.idPILOTOS_RESERVAS
      };
     //options 	: any		= { "idNEGOCIOS": '1' };
-     (this.http.post('https://www.libreviaje.com/admin/index.php/Api4/getChatReservas/',
+     (this.http.post('https://www.libreviaje.com/admin/index.php/Api5/getChatReservas/',
     JSON.stringify(options), headers))
     //probar crear otra consulta q devuelva valores location y stopover en api php.
 

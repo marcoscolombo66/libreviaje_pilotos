@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
-import { ReservarPage } from './reservar.page';
+import { EditarPage } from './editar.page';
 
-describe('ReservarPage', () => {
-  let component: ReservarPage;
-  let fixture: ComponentFixture<ReservarPage>;
+describe('EditarPage', () => {
+  let component: EditarPage;
+  let fixture: ComponentFixture<EditarPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ReservarPage ],
+      declarations: [ EditarPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ReservarPage);
+    fixture = TestBed.createComponent(EditarPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
