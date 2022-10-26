@@ -5,7 +5,7 @@ import { ImagesproviderService } from './../../imagesprovider.service';
 import { IniciarusuarioService } from './../../iniciarusuario.service';
 import { ToastController, NavController,NavParams } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
-
+import { LoadingController } from '@ionic/angular';
 @Component({
   selector: 'app-fotoperfil',
   templateUrl: './fotoperfil.page.html',
@@ -17,14 +17,23 @@ export class FotoperfilPage implements OnInit {
   idusuario: string;
   SUFFIX: any;
   idPILOTOS_RESERVAS: any;
-
+  loading: any;
   constructor(public navCtrl: NavController,
     public ALERT: ToastController,
-    public IMAGES: ImagesproviderService,public inicia: IniciarusuarioService,
+    public IMAGES: ImagesproviderService,public inicia: IniciarusuarioService,public loadingController: LoadingController,
     public storage: Storage, public navParams: NavParams, public modalCtrl: ModalController) {
       this.idPILOTOS_RESERVAS = this.navParams.get('mySubject'); //idUSUARIO
      }
+     async presentLoading(mensaje) {
+      this.loading = await this.loadingController.create({
+        message: mensaje,
+        duration: 4500
+      });
+      await this.loading.present();
 
+      //const { role, data } = await loading.onDidDismiss();
+
+    }
      selectFileToUpload(event): void
      {
        // eslint-disable-next-line no-underscore-dangle
@@ -63,7 +72,7 @@ export class FotoperfilPage implements OnInit {
 
      uploadFile(): void
      {
-
+      this.presentLoading('Se esta guardando su foto de perfil<br/><br/>Gracias!');
         this.IMAGES
         //.uploadImageSelection(this.getUsuario(),
         //.uploadImageSelection(this.idusuario,
@@ -72,6 +81,7 @@ export class FotoperfilPage implements OnInit {
                               this.SUFFIX)
         .subscribe((res) =>
         {
+          this.loading.dismiss();
            this.displayAlert(res.message);
            this.modalCtrl.dismiss(res.archivoImagen);
         },
@@ -115,7 +125,9 @@ export class FotoperfilPage implements OnInit {
       toast.present();
     }
 
-
+    canDismiss() {
+      this.modalCtrl.dismiss();
+      }
      ngOnInit(){}
 
    }

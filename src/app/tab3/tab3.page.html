@@ -33,9 +33,9 @@
 
              <ion-col size="4">
              [&nbsp;{{consulta.DIA_HORA_SALIDA |  date:'dd' }} de {{consulta.DIA_HORA_SALIDA |  date:'MMM' }}
-              de {{consulta.DIA_HORA_SALIDA |  date:'yyyy' }} - {{consulta.DIA_HORA_SALIDA | date:'HH:mm'}}hs. - {{consulta.NOMBRE_PASAJERO}} {{consulta.APELLIDO_PASAJERO}} - {{consulta.ASIENTOS_COMPRADOS}} asientos
-              &nbsp;-&nbsp;
-              <strong>Viaje:</strong> {{consulta.ESTADO_VIAJE}}&nbsp;]
+              de {{consulta.DIA_HORA_SALIDA |  date:'yyyy' }} - {{consulta.DIA_HORA_SALIDA | date:'HH:mm'}}hs.&nbsp;]<br/>
+              [&nbsp;{{consulta.NOMBRE_PASAJERO}} {{consulta.APELLIDO_PASAJERO}} - {{consulta.ASIENTOS_COMPRADOS}} asientos&nbsp;]<br/>
+              [&nbsp;<strong>Viaje:</strong> {{consulta.ESTADO_VIAJE}}&nbsp;]
                    </ion-col>
  <ion-col size="4">
                      <ion-label  (click)="abrirChat(consulta.idPILOTOS_RESERVAS,consulta.idPILOTOS,

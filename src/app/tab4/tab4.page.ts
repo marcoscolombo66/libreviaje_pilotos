@@ -7,7 +7,7 @@ import { AlertController } from '@ionic/angular';
 import { FormBuilder,Validators,FormGroup } from '@angular/forms';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { ToastController, NavController } from '@ionic/angular';
-
+import { MenuController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 @Component({
   selector: 'app-tab4',
@@ -28,10 +28,10 @@ export class Tab4Page implements OnInit {
 
 
 
-  constructor(public modalCtrl: ModalController,public http: HttpClient,
+  constructor(public modalCtrl: ModalController,public http: HttpClient,public menuCtrl: MenuController,
     public toast: ToastController,public fb: FormBuilder,public storage: Storage,public inicia: IniciarusuarioService) {
 
-
+      this.inicia.verificar();
 
     this.registroForm = this.fb.group({
       nombre:['',[Validators.required,Validators.minLength(3)]],
@@ -40,7 +40,10 @@ export class Tab4Page implements OnInit {
     });
 
    }
+   closeMenu() {
 
+    this.menuCtrl.close();
+  }
    async ngOnInit() {
     this.inicia.verificar();
     this.datosUsuario=  await this.inicia.getUser();
@@ -111,20 +114,21 @@ async presentToast(mensaje) {
   this.idUSUARIO=this.idUSUARIO['0'].idPILOTOS;
   const modal = await this.modalCtrl.create({
     component: FotoperfilPage,
-    breakpoints: [0, 0.99],
-    initialBreakpoint: 0.99,
-    handle: true,
+    //breakpoints: [0, 0.99],
+    //initialBreakpoint: 0.99,
+    //handle: true,
     componentProps: {
       mySubject:this.idUSUARIO
     },
     animated: true,
     canDismiss: true,
+    keyboardClose: true,
     //showBackdrop: true,
   });
 //Get the data returned from the Modal and add to global variable
 modal.onDidDismiss().then((modalData) => {
   console.log(modalData);
-    if(modalData.role!=='backdrop'){this.FOTO_PERFIL=modalData.data;}
+    if(modalData.role!=='backdrop' && modalData.data!==undefined){this.FOTO_PERFIL=modalData.data;}
 
 });
   await modal.present();
