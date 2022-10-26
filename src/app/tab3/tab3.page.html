@@ -18,26 +18,28 @@
 <ion-card >
 
   <ion-row class="etiqueta">
-<ion-col size="4"><span style="font-weight: bold;color:#8C1B24">SALIDA / DESTINO</span></ion-col>
+<ion-col size="5"><span style="font-weight: bold;color:#8C1B24">SALIDA / DESTINO</span></ion-col>
 
 <ion-col size="4"><span style="font-weight: bold;color:#8C1B24">DESCRIPCIÓN</span></ion-col>
 
-<ion-col size="4"><span style="font-weight: bold;color:#8C1B24">ACCIÓN
+<ion-col size="3"><span style="font-weight: bold;color:#8C1B24">ACCIÓN
   &nbsp;&nbsp;<ion-icon style="font-weight: bold;color:#8C1B24;font-size: 20px;" name="refresh-outline" (click)="getReservasDisponibles();"></ion-icon></span></ion-col>
 </ion-row></ion-card>
           <ion-card *ngFor="let consulta of reservas">
           <ion-row class="etiqueta">
-              <ion-col size="4">
-                {{consulta.SALIDA}} -> {{consulta.DESTINO}}
+              <ion-col size="5">
+                <ion-icon name="locate-sharp"></ion-icon>&nbsp; {{consulta.SALIDA}} <ion-icon name="caret-down-outline"></ion-icon><br/>
+                <ion-icon name="pin-sharp"></ion-icon>&nbsp; {{consulta.DESTINO}}
                 </ion-col>
 
              <ion-col size="4">
-             [&nbsp;{{consulta.DIA_HORA_SALIDA |  date:'dd' }} de {{consulta.DIA_HORA_SALIDA |  date:'MMM' }}
-              de {{consulta.DIA_HORA_SALIDA |  date:'yyyy' }} - {{consulta.DIA_HORA_SALIDA | date:'HH:mm'}}hs.&nbsp;]<br/>
-              [&nbsp;{{consulta.NOMBRE_PASAJERO}} {{consulta.APELLIDO_PASAJERO}} - {{consulta.ASIENTOS_COMPRADOS}} asientos&nbsp;]<br/>
-              [&nbsp;<strong>Viaje:</strong> {{consulta.ESTADO_VIAJE}}&nbsp;]
+              &nbsp;<strong><ion-icon name="calendar-sharp"></ion-icon>&nbsp;</strong>&nbsp;{{consulta.DIA_HORA_SALIDA |  date:'dd/MM/yyyy' }} <br/>
+              &nbsp;<strong><ion-icon name="time-sharp"></ion-icon>&nbsp;</strong>&nbsp;{{consulta.DIA_HORA_SALIDA | date:'HH:mm'}}hs.&nbsp;<br/>
+              &nbsp;<strong><ion-icon name="person-sharp"></ion-icon>&nbsp;</strong>&nbsp;{{consulta.NOMBRE_PASAJERO}} {{consulta.APELLIDO_PASAJERO}} <br/>
+              &nbsp;<strong><ion-icon name="walk-sharp"></ion-icon>&nbsp;</strong>&nbsp;{{consulta.ASIENTOS_COMPRADOS}} asientos&nbsp;<br/>
+              &nbsp;<strong><ion-icon name="airplane-sharp"></ion-icon>&nbsp;</strong>&nbsp;{{consulta.ESTADO_VIAJE}}&nbsp;
                    </ion-col>
- <ion-col size="4">
+ <ion-col size="3">
                      <ion-label  (click)="abrirChat(consulta.idPILOTOS_RESERVAS,consulta.idPILOTOS,
                      consulta.idUSUARIO,consulta.MAIL_PASAJERO,consulta.NOMBRE_PILOTO);" *ngIf="consulta.ESTADO_RESERVA==='PAGO' && consulta.ESTADO_VIAJE==='PENDIENTE'">
                      <ion-icon name="chatbubble-ellipses-outline" style="color:#8C1B24;font-size:22px;">

@@ -16,11 +16,11 @@
       <ion-col size="1"></ion-col>
       <ion-col size="11">
     <ion-row>
-      <ion-col class="etiqueta" size="6">DIA / HORA</ion-col>
+      <ion-col class="etiqueta" size="12">DIA / HORA</ion-col>
     </ion-row>
     <ion-row>
-      <ion-col class="etiqueta" size="6">
-            <ion-input style="font-size:16px;--placeholder-color: currentColor;
+      <ion-col class="etiqueta" size="12">
+            <ion-input style="min-width:250px;font-size:16px;--placeholder-color: currentColor;
             --placeholder-opacity: 0.33;" placeholder="¿Qué dia y a qué hora salís?"
               value="{{ date | date: 'yyyy-MM-dd HH:mm:ss' }}"
               id="date"></ion-input>
@@ -35,13 +35,13 @@
       </ion-col>
     </ion-row>
           <ion-row>
-            <ion-col class="etiqueta" size="6">SALIDA</ion-col>
+            <ion-col class="etiqueta" size="12">SALIDA</ion-col>
           </ion-row>
           <ion-row>
-            <ion-col class="etiqueta" size="6">
+            <ion-col class="etiqueta" size="12">
             <ion-list>
               <ion-item>
-                <ion-select  [(ngModel)]="salida" interface="action-sheet" placeholder="¿Desde dónde salis">
+                <ion-select  class="nuevo_vuelo" [(ngModel)]="salida" interface="action-sheet" placeholder="¿Desde dónde salis">
                   <ion-select-option *ngFor="let lugar of lugares" [value]="lugar">{{lugar.DESCRIPCION}}</ion-select-option>
 
                 </ion-select>
@@ -52,13 +52,13 @@
 
 
         <ion-row>
-          <ion-col class="etiqueta" size="6">DESTINO</ion-col>
+          <ion-col class="etiqueta" size="12">DESTINO</ion-col>
         </ion-row>
         <ion-row>
-          <ion-col class="etiqueta" size="6">
+          <ion-col class="etiqueta" size="12">
           <ion-list>
             <ion-item>
-              <ion-select  [(ngModel)]="destino" interface="action-sheet" placeholder="¿Hacia dónde vas?">
+              <ion-select   class="nuevo_vuelo" [(ngModel)]="destino" interface="action-sheet" placeholder="¿Hacia dónde vas?">
                 <ion-select-option *ngFor="let lugar of lugares" [value]="lugar">{{lugar.DESCRIPCION}}</ion-select-option>
 
               </ion-select>
@@ -67,13 +67,13 @@
           </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col class="etiqueta" size="6">AVION</ion-col>
+          <ion-col class="etiqueta" size="12">AVION</ion-col>
         </ion-row>
         <ion-row>
-          <ion-col class="etiqueta" size="6">
+          <ion-col class="etiqueta" size="12">
           <ion-list>
             <ion-item>
-              <ion-select  [(ngModel)]="avion" interface="action-sheet" placeholder="¿En qué avion vas a volar?">
+              <ion-select  class="nuevo_vuelo" [(ngModel)]="avion" interface="action-sheet" placeholder="¿En qué avion vas a volar?">
                 <ion-select-option *ngFor="let avion of aviones" [value]="avion">{{avion.MARCA}} - {{avion.MODELO}}</ion-select-option>
 
               </ion-select>
@@ -82,26 +82,26 @@
           </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col class="etiqueta" size="6">CANTIDAD DE ASIENTOS</ion-col>
+          <ion-col class="etiqueta" size="12">CANTIDAD DE ASIENTOS</ion-col>
         </ion-row>
         <ion-row>
-          <ion-col class="etiqueta" size="6">
+          <ion-col class="etiqueta" size="12">
           <ion-list>
             <ion-item>
-              <ion-input   [(ngModel)]="asientos" inputmode="numeric" min="1" type="number" placeholder="¿Cuantos asientos libres hay?"></ion-input>
+              <ion-input   class="nuevo_vuelo" [(ngModel)]="asientos" inputmode="numeric" min="1" type="number" placeholder="¿Cuantos asientos libres hay?"></ion-input>
             </ion-item>
           </ion-list>
           </ion-col>
         </ion-row>
 
         <ion-row>
-          <ion-col class="etiqueta" size="6">PRECIO C/ASIENTO (USD)</ion-col>
+          <ion-col class="etiqueta" size="12">PRECIO C/ASIENTO (USD)</ion-col>
         </ion-row>
         <ion-row>
-          <ion-col class="etiqueta" size="6">
+          <ion-col class="etiqueta" size="12">
           <ion-list>
             <ion-item>
-              <ion-input [(ngModel)]="precio" step="50" inputmode="numeric" min="100" type="number" placeholder="¿Cuantos dólares vas a cobrar por cada asiento?"></ion-input>
+              <ion-input  class="nuevo_vuelo" [(ngModel)]="precio" step="50" inputmode="numeric" min="100" type="number" placeholder="¿Cuantos dólares vas a cobrar por cada asiento?"></ion-input>
             </ion-item>
           </ion-list>
           </ion-col>

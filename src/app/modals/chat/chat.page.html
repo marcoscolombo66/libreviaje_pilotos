@@ -14,7 +14,10 @@
     <div class="message info"> <img alt="" class="img-circle medium-image"
       src="https://libreviaje.com/images/{{consulta.FOTO_PILOTO}}">
       <div class="message-body">
-        <div class="message-info"><h4> {{consulta.PILOTO}}</h4><h5> <ion-icon name="time" class="fa fa-clock-o"></ion-icon> {{consulta.FECHA_HORA}}</h5></div><hr>
+        <div class="message-info"><h4> {{consulta.PILOTO}}</h4>
+          <h5> <ion-icon name="time" class="fa fa-clock-o"></ion-icon>
+            {{consulta.FECHA_HORA |  date:'dd/MM/yyyy' }} - {{consulta.FECHA_HORA |  date:'HH:mm' }}
+            </h5></div><hr>
         <div class="message-text"> {{consulta.MENSAJE}}</div>
       </div> <br>
     </div>
@@ -29,7 +32,9 @@
       <div class="message-body">
         <div class="message-body-inner">
           <div class="message-info"><h4> {{consulta.PASAJERO}}</h4><h5>
-            <ion-icon name="time" class="fa fa-clock-o"></ion-icon> {{consulta.FECHA_HORA}}</h5></div><hr>
+            <ion-icon name="time" class="fa fa-clock-o"></ion-icon>
+           {{consulta.FECHA_HORA |  date:'dd/MM/yyyy' }} - {{consulta.FECHA_HORA |  date:'HH:mm' }}
+          </h5></div><hr>
           <div class="message-text"> {{consulta.MENSAJE}}</div>
         </div>
       </div> <br>
