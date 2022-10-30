@@ -4,7 +4,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     &nbsp;
-      <img src='https://libreviaje.com/images/logo_top_new.png'
+      <img src='assets/logo_top.png'
       style="padding-top: 5px; padding-bottom: 2px; width: 20%; height: 20%;max-width:87px;max-height:43px"/>
 
      </ion-toolbar>
@@ -28,7 +28,7 @@
           <ion-card *ngFor="let consulta of reservas">
           <ion-row class="etiqueta">
               <ion-col size="5">
-                <ion-icon name="locate-sharp"></ion-icon>&nbsp; {{consulta.SALIDA}} <ion-icon name="caret-down-outline"></ion-icon><br/>
+                <ion-icon name="locate-sharp"></ion-icon>&nbsp; {{consulta.SALIDA}} <br/>
                 <ion-icon name="pin-sharp"></ion-icon>&nbsp; {{consulta.DESTINO}}
                 </ion-col>
 
@@ -36,13 +36,13 @@
               &nbsp;<strong><ion-icon name="calendar-sharp"></ion-icon>&nbsp;</strong>&nbsp;{{consulta.DIA_HORA_SALIDA |  date:'dd/MM/yyyy' }} <br/>
               &nbsp;<strong><ion-icon name="time-sharp"></ion-icon>&nbsp;</strong>&nbsp;{{consulta.DIA_HORA_SALIDA | date:'HH:mm'}}hs.&nbsp;<br/>
               &nbsp;<strong><ion-icon name="person-sharp"></ion-icon>&nbsp;</strong>&nbsp;{{consulta.NOMBRE_PASAJERO}} {{consulta.APELLIDO_PASAJERO}} <br/>
-              &nbsp;<strong><ion-icon name="walk-sharp"></ion-icon>&nbsp;</strong>&nbsp;{{consulta.ASIENTOS_COMPRADOS}} asientos&nbsp;<br/>
+              &nbsp;<strong><ion-icon name="logo-steam" class="rotate-90"></ion-icon>&nbsp;</strong>&nbsp;{{consulta.ASIENTOS_COMPRADOS}} asientos&nbsp;<br/>
               &nbsp;<strong><ion-icon name="airplane-sharp"></ion-icon>&nbsp;</strong>&nbsp;{{consulta.ESTADO_VIAJE}}&nbsp;
                    </ion-col>
  <ion-col size="3">
                      <ion-label  (click)="abrirChat(consulta.idPILOTOS_RESERVAS,consulta.idPILOTOS,
                      consulta.idUSUARIO,consulta.MAIL_PASAJERO,consulta.NOMBRE_PILOTO);" *ngIf="consulta.ESTADO_RESERVA==='PAGO' && consulta.ESTADO_VIAJE==='PENDIENTE'">
-                     <ion-icon name="chatbubble-ellipses-outline" style="color:#8C1B24;font-size:22px;">
+                     <br/><ion-icon name="chatbubble-ellipses-outline" style="color:#8C1B24;font-size:22px;">
                     </ion-icon>
 
                   </ion-label>
@@ -50,9 +50,9 @@
 
 
                   <ion-label *ngIf="consulta.ESTADO_RESERVA==='NO_PAGO'" class="etiqueta">
-                    <ion-icon  name="time-outline" class="etiqueta"
+                    <br/><ion-icon  name="time-outline" class="etiqueta"
                     style="font-size:12px;color:#e0ac08;">
-                    </ion-icon>&nbsp;Esperando pago de Reserva</ion-label>
+                    </ion-icon>&nbsp;Esperando paguen reserva</ion-label>
 
 
 

@@ -47,7 +47,7 @@ export class LoginPage implements OnInit {
       .then(
         (data) =>
         {
-          this.loginExitoso();
+          //this.loginExitoso();
           //this.getNotificaciones(data['0'].idCONDUCTORES);
        },
         error => console.error('Error storing item', error),

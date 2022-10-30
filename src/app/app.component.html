@@ -3,43 +3,43 @@
   <ion-menu side="start" type="push" contentId="main">
     <ion-header>
       <ion-toolbar color="primary">
-        <ion-title class="menu_inicio_titulo">MENU</ion-title>
+        <ion-title class="menu_inicio_titulo"></ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content>
 
-      <ion-list ><ion-card>
-        <ion-item routerLink="nuevo" (click)="closeMenu();">
-          <ion-icon slot="start"  name="add" color="secondary"></ion-icon>
-          <span class="menu_inicio">PUBLICAR VIAJE</span>
+      <ion-list >
+        <ion-item routerLink="nuevo" (click)="closeMenu();" class="menu_inicio">
+          <ion-icon slot="start"  name="add" style="font-family: 'Helvetica';color:#2c0e4c;"></ion-icon>
+          PUBLICAR VIAJE
         </ion-item>
 
-        <ion-item routerLink="tab1" (click)="closeMenu();">
-          <ion-icon slot="start"  name="airplane-sharp" color="secondary"></ion-icon>
-          <span class="menu_inicio">MIS VUELOS</span>
+        <ion-item routerLink="tab1" (click)="closeMenu();" class="menu_inicio">
+          <ion-icon slot="start"  name="airplane-sharp" style="font-family: 'Helvetica';color:#2c0e4c;"></ion-icon>
+          MIS VUELOS
         </ion-item>
 
-        <ion-item routerLink="tab3" (click)="closeMenu();">
-          <ion-icon slot="start"  name="logo-usd" color="secondary"></ion-icon>
-          <span class="menu_inicio">RESERVAS VENDIDAS</span>
+        <ion-item routerLink="tab3" (click)="closeMenu();" class="menu_inicio">
+          <ion-icon slot="start"  name="logo-usd" style="font-family: 'Helvetica';color:#2c0e4c;"></ion-icon>
+          RESERVAS VENDIDAS
         </ion-item>
 
-         <ion-item routerLink="tab4" (click)="closeMenu();">
-          <ion-icon slot="start"  name="person-sharp" color="secondary"></ion-icon>
-          <span class="menu_inicio">MI PERFIL</span>
+         <ion-item routerLink="tab4" (click)="closeMenu();" class="menu_inicio">
+          <ion-icon slot="start"  name="person-sharp" style="font-family: 'Helvetica';color:#2c0e4c;"></ion-icon>
+          MI PERFIL
         </ion-item>
 
-        <ion-item routerLink="home" (click)="closeMenu();">
-          <ion-icon slot="start"  name="information-circle-sharp" color="secondary"></ion-icon>
-          <span class="menu_inicio">AYUDA</span>
+        <ion-item routerLink="home" (click)="closeMenu();" class="menu_inicio">
+          <ion-icon slot="start"  name="information-circle-sharp" style="font-family: 'Helvetica';color:#2c0e4c;"></ion-icon>
+          AYUDA
         </ion-item>
 
-        <ion-item routerLink="cerrar" (click)="closeMenu();">
-          <ion-icon slot="start"  name="log-out-sharp" color="secondary"></ion-icon>
-          <span class="menu_inicio">SALIR</span>
+        <ion-item routerLink="cerrar" (click)="closeMenu();" class="menu_inicio">
+          <ion-icon slot="start"  name="log-out-sharp" style="font-family: 'Helvetica';color:#2c0e4c;"></ion-icon>
+          SALIR
         </ion-item>
 
-      </ion-card>
+
       </ion-list>
     </ion-content>
   </ion-menu>
