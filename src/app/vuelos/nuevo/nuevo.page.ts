@@ -153,7 +153,7 @@ getAviones(){
     const toast = await this.toast.create({
       message: mensaje,
       duration: duracion,
-      icon: icon,
+      icon,
       cssClass: css
     });
     toast.present();

@@ -36,11 +36,11 @@
          <!-- Podria ir algo...-->
          </ion-card-content>
          <ion-card-content>
-          <ion-button shape="round" fill="outline" class="botones" *ngIf="showBoton===true"
+          <ion-button shape="round" fill="outline" class="botones" *ngIf="okok>consulta.DIA_HORA"
           (click)="presentModal(consulta.DESTINO,consulta.PRECIO,consulta.FOTO_DESTINO,
           consulta.ASIENTOS,consulta.ASIENTOS_ORIGEN,consulta.idPILOTOS_DESTINOS,consulta.DIA_HORA,
           consulta.SALIDA,consulta.idAVIONES,consulta.MARCA,consulta.MODELO)">EDITAR</ion-button>
-          <ion-label *ngIf="showBoton===false">Podrás republicar después de la fecha.</ion-label>
+          <ion-label *ngIf="okok<consulta.DIA_HORA">Podrás republicar después de la fecha.</ion-label>
         </ion-card-content>
       </ion-card>
     </ion-slide>

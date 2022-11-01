@@ -13,14 +13,54 @@
   <meta name="msapplication-tap-highlight" content="no" />
 
   <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
-
+  <link rel="manifest" href="app.webmanifest">
   <!-- add to homescreen for ios -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+  <style>
+    h1 {
+      text-align: center;
+    }
+
+    .toolbar {
+      width: 100%;
+      display: flex;
+      margin-top: 16px;
+      justify-content: center;
+    }
+
+    .instructions {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    output {
+      display: block;
+      color: gray;
+      margin: 32px 16px;
+      text-align: center;
+      border: 1px silver dashed;
+      padding: 16px;
+      border-radius: 16px;
+    }
+
+    button {
+      display: block;
+      font-size: 16px;
+      border: 2px solid black;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 0 8px;
+      text-transform: uppercase;
+    }
+    </style>
 </head>
 
 <body>
   <app-root></app-root>
+
+  <script src="js/app.js"></script>
 </body>
 
 </html>

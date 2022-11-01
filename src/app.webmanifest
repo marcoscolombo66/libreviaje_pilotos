@@ -1,0 +1,37 @@
+{
+  "name": "Libreviaje.com app para Pilotos.",
+  "short_name": "Libreviaje.com",
+  "theme_color": "#2c0e4c",
+  "background_color": "silver",
+  "start_url": "/pilotos/",
+  "id": "demo-1",
+  "display": "standalone",
+  "scope": "./",
+  "icons": [
+     {
+        "src": "https://libreviaje.com/pilotos/images/icons/icon-512x512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+     },
+     {
+        "src": "https://libreviaje.com/pilotos/images/icons/icon-512x512.png",
+        "type": "image/png",
+        "sizes": "512x512",
+        "purpose": "maskable"
+     }
+   ],
+   "description": "Libreviaje.com la app para pilotos de vuelos privados.",
+   "categories": ["games", "education"],
+   "screenshots": [
+     {
+        "src": "https://libreviaje.com/pilotos/images/icons/icon-512x512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+     },
+     {
+        "src": "https://libreviaje.com/pilotos/images/icons/icon-512x512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+     }
+   ]
+}

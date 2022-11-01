@@ -30,7 +30,9 @@ async guardar()
         this.idUSUARIO=this.idUSUARIO['0'].idPILOTOS;
 
         if (!this.registroForm.valid) {
-        this.presentToast(' ¡Atención! Ha ocurrido un error.<br/>Ingrese los valores requeridos.');
+
+        this.presentToast('¡Atención! Ha ocurrido un error.<br/>Ingrese los valores requeridos.',2000,'warning','warning-toast');
+
         return false;
       } else {
     //////////////////////////////////RESERVA///////////////////////////////////////////
@@ -54,23 +56,29 @@ async guardar()
 
         .subscribe(
          (res: any) => {
-          this.presentToast(' Se envio consulta, nos comunicaremos a la brevedad!');
-        },
+          this.presentToast('Se envio consulta, nos comunicaremos a la brevedad!',2000,'checkmark','sucess-toast');
+                  },
         (error: any) =>{
-         this.presentToast(' ¡Atención! Ha ocurrido un error.<br/>Vuelva a intentarlo');
+
+         this.presentToast('¡Atención! Ha ocurrido un error.<br/>Vuelva a intentarlo',2000,'warning','warning-toast');
          console.log(error);
         }
         );
       }
       }
 
-      async presentToast(mensaje) {
+
+
+      async presentToast(mensaje,duracion,icon,css) {
         const toast = await this.toast.create({
           message: mensaje,
-          duration: 2000
+          duration: duracion,
+          icon,
+          cssClass: css
         });
         toast.present();
       }
+
  ngOnInit() {
       this.inicia.verificar();
 }

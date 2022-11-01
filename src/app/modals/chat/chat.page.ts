@@ -34,7 +34,7 @@ export class ChatPage implements OnInit {
         totales:['']
       });
       this.nomostrar=true;
-     const numbers = interval(150000);
+     const numbers = interval(7000);
     numbers.subscribe(()=>{
      this.getChatReservas();
     });

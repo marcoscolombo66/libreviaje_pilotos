@@ -125,7 +125,7 @@ export class Tab1Page implements OnInit {
 
     this.idUSUARIO= await this.inicia.getUser();
     this.idUSUARIO=this.idUSUARIO['0'].idPILOTOS;
-    const options: any		= { idPILOTOS: '1' };
+    const options: any		= { idPILOTOS: this.idUSUARIO };
 
      (this.http.post('https://www.libreviaje.com/admin/index.php/Api5/getViajesDisponibles/',
     JSON.stringify(options), headers))
@@ -142,16 +142,16 @@ export class Tab1Page implements OnInit {
         this.viajesDisponibles = res;
         this.ver=true;
         // Aquí solo asigna el valor llegado a tu variable declarada
-        this.okok = res[0].DIA_HORA;
-        const fechauno = this.formatDate(new Date());
-        if (this.okok<fechauno){
+        //this.okok = res[0].DIA_HORA;
+        this.okok = this.formatDate(new Date());
+       /* if (this.okok >fechauno){
           this.showBoton=false;
         }
         else{
           this.showBoton=true;
-        }
-        console.log('fecha actual', fechauno );
-        console.log('fecha base', this.okok );
+        }*/
+        //console.log('fecha actual', fechauno );
+        //console.log('fecha base', this.okok );
     }
       },
     (error: any) =>{

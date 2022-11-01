@@ -59,14 +59,15 @@ export class FotoperfilPage implements OnInit {
            // If we don't alert the user
            else
            {
-              this.displayAlert('Tenes que subir una imágen que tenga los siguientes formatos: jpg, gif or png');
-           }
+              this.displayAlert ('Tenes que subir una imágen que tenga los siguientes formatos: jpg,'+
+               'gif or png',2000,'warning','warning-toast');
+            }
         },
         (error) =>
         {
            console.dir(error);
-           this.displayAlert(error.message);
-        });
+           this.displayAlert (error.message,2000,'warning','warning-toast');
+                  });
      }
 
 
@@ -82,13 +83,15 @@ export class FotoperfilPage implements OnInit {
         .subscribe((res) =>
         {
           this.loading.dismiss();
-           this.displayAlert(res.message);
+
+           this.displayAlert (res.message,2000,'checkmark','sucess-toast');
            this.modalCtrl.dismiss(res.archivoImagen);
         },
         (error: any) =>
         {
            console.dir(error);
-           this.displayAlert(error.message);
+
+           this.displayAlert (error.message,2000,'warning','warning-toast');
         });
      }
 
@@ -116,11 +119,13 @@ export class FotoperfilPage implements OnInit {
       */
 
 
-     async displayAlert(message) {
+
+    async displayAlert(mensaje,duracion,icon,css) {
       const toast = await this.ALERT.create({
-        message,
-        duration: 2000,
-        position: 'top'
+        message: mensaje,
+        duration: duracion,
+        icon,
+        cssClass: css
       });
       toast.present();
     }
