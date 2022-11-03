@@ -22,7 +22,7 @@
 
 <ion-col size="4"><span style="font-weight: bold;color:#2c0e4c">DESCRIPCIÓN</span></ion-col>
 
-<ion-col size="3"><span style="font-weight: bold;color:#2c0e4c">ACCIÓN
+<ion-col size="3" style="text-align:center;"><span style="font-weight: bold;color:#2c0e4c">ACCIÓN
   &nbsp;&nbsp;<ion-icon style="font-weight: bold;color:#2c0e4c;font-size: 20px;" name="refresh-outline" (click)="getReservasDisponibles();"></ion-icon></span></ion-col>
 </ion-row></ion-card>
           <ion-card *ngFor="let consulta of reservas">
@@ -39,20 +39,23 @@
               &nbsp;<strong><ion-icon name="logo-steam" class="rotate-90"></ion-icon>&nbsp;</strong>&nbsp;{{consulta.ASIENTOS_COMPRADOS}} asientos&nbsp;<br/>
               &nbsp;<strong><ion-icon name="airplane-sharp"></ion-icon>&nbsp;</strong>&nbsp;{{consulta.ESTADO_VIAJE}}&nbsp;
                    </ion-col>
- <ion-col size="3">
+ <ion-col size="3" style="text-align:center;">
                      <ion-label  (click)="abrirChat(consulta.idPILOTOS_RESERVAS,consulta.idPILOTOS,
                      consulta.idUSUARIO,consulta.MAIL_PASAJERO,consulta.NOMBRE_PILOTO);" *ngIf="consulta.ESTADO_RESERVA==='PAGO' && consulta.ESTADO_VIAJE==='PENDIENTE'">
-                     <br/><ion-icon name="chatbubble-ellipses-outline" style="color:#8C1B24;font-size:22px;">
+                     <br/><ion-icon name="chatbubble-ellipses-outline" style="color:#2c0e4c;font-size:22px;">
                     </ion-icon>
-
+                    &nbsp;<br/>
+                    Chatear con {{consulta.NOMBRE_PASAJERO}}
                   </ion-label>
 
 
 
-                  <ion-label *ngIf="consulta.ESTADO_RESERVA==='NO_PAGO'" class="etiqueta">
-                    <br/><ion-icon  name="time-outline" class="etiqueta"
-                    style="font-size:12px;color:#e0ac08;">
-                    </ion-icon>&nbsp;Esperando paguen reserva</ion-label>
+                  <ion-label  *ngIf="consulta.ESTADO_RESERVA==='NO_PAGO'" class="etiqueta">
+                    <br/><ion-icon  name="time-outline"
+                    style="font-size:22px;color:#2c0e4c;">
+                    </ion-icon>&nbsp;<br/>
+                    Procesando pago
+                  </ion-label>
 
 
 
