@@ -55,7 +55,12 @@ const routes: Routes = [
   {
     path: 'nuevo',
     loadChildren: () => import('./vuelos/nuevo/nuevo.module').then( m => m.NuevoPageModule)
+  },
+  {
+    path: 'chat2',
+    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
   }
+
 
 
 

@@ -1,13 +1,25 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Chat</ion-title>
+    <ion-input type="text" [(ngModel)]="mensaje" class="bordeMensajero" placeholder="Enviar mensaje"></ion-input>
     <ion-buttons slot="end">
+      <ion-button (click)="enviaMensaje()"><ion-icon name="send"></ion-icon></ion-button>
+      <ion-button (click)="getChatReservas()"><ion-icon name="reload"></ion-icon></ion-button>
       <ion-button (click)="cancel()"><ion-icon name="close"></ion-icon></ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content *ngIf="nomostrar">
+  <ion-grid class="ion-align-items-center">
+
+<form [formGroup]= "myForm"  novalidate>
+<ion-row >
+<ion-col></ion-col>
+<ion-col></ion-col>
+</ion-row>
+</form>
+
+  </ion-grid>
 <ion-grid  *ngFor="let consulta of chats">
 <ion-row *ngIf="consulta.TIPO_USUARIO==='PILOTO'" class="container">
   <ion-col>
@@ -45,17 +57,5 @@
 
 
       </ion-grid>
-    <ion-grid>
-      <ion-row>
 
- <form [formGroup]= "myForm"  novalidate>
-  <ion-col><div class="chat-footer">
-    <textarea class="send-message-text" formControlName="mensaje"></textarea>
-    <button type="button" class="send-message-button btn-info" (click)="enviaMensaje()">
-        <ion-icon name="send"></ion-icon>
-      </button>
-    </div></ion-col>
-  </form>
-</ion-row>
-        </ion-grid>
 </ion-content>

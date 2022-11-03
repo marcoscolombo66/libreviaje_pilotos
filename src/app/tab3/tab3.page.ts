@@ -43,9 +43,9 @@ const numbers = interval(20000);
 
     const modal = await this.modalCtrl.create({
       component: ComprobantePage,
-      breakpoints: [0, 0.99],
-      initialBreakpoint: 0.99,
-      handle: true,
+      //breakpoints: [0, 0.99],
+      //initialBreakpoint: 0.99,
+      //handle: true,
       componentProps: {
         mySubject: idPILOTOS_RESERVAS
       },

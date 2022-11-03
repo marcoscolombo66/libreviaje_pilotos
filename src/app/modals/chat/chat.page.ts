@@ -6,12 +6,14 @@ import { NavParams } from '@ionic/angular';
 import { interval} from 'rxjs';
 import { FormBuilder,FormGroup,Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
+
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.page.html',
   styleUrls: ['./chat.page.scss'],
 })
 export class ChatPage implements OnInit {
+
   // eslint-disable-next-line @typescript-eslint/naming-convention
   idPILOTOS_RESERVAS: any;
   idUSUARIO: any;
@@ -26,6 +28,7 @@ export class ChatPage implements OnInit {
 
 
   public myForm: FormGroup;
+  mensaje: any;
   constructor(public http: HttpClient, public navParams: NavParams,public modalCtrl: ModalController,
     public inicia: IniciarusuarioService, public formBuilder: FormBuilder)
     {
@@ -34,21 +37,30 @@ export class ChatPage implements OnInit {
         totales:['']
       });
       this.nomostrar=true;
-     const numbers = interval(7000);
-    numbers.subscribe(()=>{
-     this.getChatReservas();
-    });
 
     this.myForm=this.formBuilder.group({
       mensaje:['',Validators.required]
     });
 
     }
+
+  ///////////////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////////
     cancel() {
       return this.modalCtrl.dismiss(null, 'cancel');
     }
   ngOnInit() {
     this.getChatReservas();
+    const numbers = interval(15000);
+
+    numbers.subscribe(()=>{
+
+     this.getChatReservas();
+
+
+    });
+
+
   }
    //////////////////////////////////////////////////////////////////////////////////////////////////////////////
    async enviaMensaje()
@@ -66,7 +78,7 @@ export class ChatPage implements OnInit {
       // eslint-disable-next-line @typescript-eslint/naming-convention
       idUSUARIO: this.idUSUARIO,
       // eslint-disable-next-line @typescript-eslint/naming-convention
-      MENSAJE: this.myForm.value.mensaje,
+      MENSAJE: this.mensaje,
       // eslint-disable-next-line @typescript-eslint/naming-convention
       TIPO_USUARIO: 'PILOTO',
       // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -86,6 +98,7 @@ export class ChatPage implements OnInit {
       this.myForm=this.formBuilder.group({
         mensaje:['',Validators.required]
       });
+      this.mensaje='';
       this.getChatReservas();
 
     },
@@ -119,6 +132,7 @@ export class ChatPage implements OnInit {
      (res: any) => {
       this.chats=res;
       this.nomostrar=true;
+
     },
     (error: any) =>{
      //console.log('error',error);
@@ -130,6 +144,5 @@ export class ChatPage implements OnInit {
     );
   }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 }

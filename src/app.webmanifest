@@ -1,7 +1,7 @@
 {
   "name": "Libreviaje.com app para Pilotos.",
   "short_name": "Libreviaje.com",
-  "theme_color": "#2c0e4c",
+  "theme_color": "#ffffff",
   "background_color": "silver",
   "start_url": "/pilotos/",
   "id": "demo-1",
