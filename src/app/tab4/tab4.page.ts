@@ -120,7 +120,8 @@ async presentToast(mensaje,duracion,icon,css) {
     message: mensaje,
     duration: duracion,
     icon,
-    cssClass: css
+    cssClass: css,
+    position: 'top'
   });
   toast.present();
 }

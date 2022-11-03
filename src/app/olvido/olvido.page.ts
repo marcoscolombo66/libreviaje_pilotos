@@ -64,7 +64,8 @@ export class OlvidoPage implements OnInit {
     async presentToast(mensaje) {
       const toast = await this.toast.create({
         message: mensaje,
-        duration: 2000
+        duration: 2000,
+        position: 'top'
       });
       toast.present();
     }

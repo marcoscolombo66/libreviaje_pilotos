@@ -68,8 +68,9 @@ this.txtavionMod=(this.navParams.get('mySubject11'));
     const toast = await this.toast.create({
       message: mensaje,
       duration: duracion,
-      icon: icon,
-      cssClass: css
+      icon,
+      cssClass: css,
+      position: 'top'
     });
     toast.present();
   }

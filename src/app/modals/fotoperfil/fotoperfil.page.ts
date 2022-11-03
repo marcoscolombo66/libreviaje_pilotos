@@ -125,7 +125,8 @@ export class FotoperfilPage implements OnInit {
         message: mensaje,
         duration: duracion,
         icon,
-        cssClass: css
+        cssClass: css,
+        position: 'top'
       });
       toast.present();
     }

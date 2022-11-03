@@ -74,7 +74,8 @@ async guardar()
           message: mensaje,
           duration: duracion,
           icon,
-          cssClass: css
+          cssClass: css,
+          position: 'top'
         });
         toast.present();
       }
