@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IniciarusuarioService } from '../iniciarusuario.service';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { interval} from 'rxjs';
-import { ModalController } from '@ionic/angular';
+import { ModalController, ToastController } from '@ionic/angular';
 import { ComprobantePage } from './../modals/comprobante/comprobante.page';
 import { ChatPage } from './../modals/chat/chat.page';
 @Component({
@@ -16,8 +16,9 @@ export class Tab3Page implements OnInit {
   nomostrar: any;
   reservas: any;
   idUSUARIO: any;
-  constructor(public inicia: IniciarusuarioService,public http: HttpClient, public modalCtrl: ModalController)
+  constructor(public toast: ToastController,public inicia: IniciarusuarioService,public http: HttpClient, public modalCtrl: ModalController)
   {
+
 this.nomostrar=true;
 const numbers = interval(20000);
     numbers.subscribe(()=>{
@@ -76,6 +77,23 @@ async abrirChat(idPILOTOS_RESERVAS,idPILOTOS,idUSUARIO,EMAIL_PASAJERO,NOMBRE_PIL
     keyboardClose: true,
   });
   await modal.present();
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+async presentToast(mensaje,duracion,icon,css) {
+  const toast = await this.toast.create({
+    message: mensaje,
+    duration: duracion,
+    icon,
+    cssClass: css,
+    position: 'top'
+  });
+  toast.present();
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+mensajeProcesandoPago(pasajero){
+  const mensaje='Se esta procesando el pago. <br/>Una vez que '+pasajero+' pague la reserva, se habilitará el chat';
+  this.presentToast(mensaje,3000,'time','mensaje-toast');
+
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
   async getReservasDisponibles()

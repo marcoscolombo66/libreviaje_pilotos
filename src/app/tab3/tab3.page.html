@@ -50,7 +50,7 @@
 
 
 
-                  <ion-label  *ngIf="consulta.ESTADO_RESERVA==='NO_PAGO'" class="etiqueta">
+                  <ion-label  (click)="mensajeProcesandoPago(consulta.NOMBRE_PASAJERO);" *ngIf="consulta.ESTADO_RESERVA==='NO_PAGO'" class="etiqueta">
                     <br/><ion-icon  name="time-outline"
                     style="font-size:22px;color:#2c0e4c;">
                     </ion-icon>&nbsp;<br/>

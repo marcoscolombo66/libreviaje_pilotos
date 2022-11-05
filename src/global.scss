@@ -64,11 +64,21 @@
 
 .atencion{color:#8C1B24;}
 
+ion-toast.mensaje-toast {
+  --background: #2c0e4ccc;
+  --box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
+  --color: #FFF;
+  font-weight: bold;
+  font-family: 'Helvetica';
+  margin-top:50px;
+
+}
+
 ion-toast.warning-toast {
   --background: #ff480080;
   --box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
   --color: #FFF;
-  font-weight: bolder;
+  font-weight: bold;
   font-family: 'Helvetica';
   margin-top:50px;
 
@@ -77,7 +87,7 @@ ion-toast.sucess-toast {
   --background: #0abe61c2;
   --box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
   --color: #FFF;
-  font-weight: bolder;
+  font-weight: bold;
   font-family: 'Helvetica';
   margin-top:50px;
 }

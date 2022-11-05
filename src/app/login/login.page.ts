@@ -86,7 +86,7 @@ export class LoginPage implements OnInit {
   }
   async ngOnInit() {
     await this.Str.create();
-    this.Str.get('login')
+    this.Str.get('datos_piloto')
     .then((data)=>{
       if(data){
         this.router.navigate(['/tab1']);
