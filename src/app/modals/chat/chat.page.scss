@@ -90,7 +90,7 @@ width: 100%;
 
   ion-input.bordeMensajero {
     --background: #fff;
-    --color: #2c0e4c;
+    --color: #6742e0d5;
     --placeholder-color: #ddd;
     --placeholder-opacity: .8;
 
@@ -254,7 +254,7 @@ padding-right: 10px;
 font-size: 14px;
 font-weight: 600;
 margin: 7px 13px 0 10px;
-color: #65addd;
+color: #6742e0d5;
 float: left;
 }
 
@@ -320,13 +320,13 @@ float: right;
 }
 
 .message.info .message-body {
-background-color: #2da9e9;
-border: 1px solid #2da9e9;
+background-color: #6742e0d5;
+border: 1px solid #6742e0bb;
 color: #fff;
 }
 
 .message.info:after, .message.info:before {
-border-right: 13px solid #2da9e9;
+border-right: 13px solid #6742e0d5;
 }
 
 .message.success .message-body {

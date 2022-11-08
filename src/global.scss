@@ -42,15 +42,18 @@
   font-family: 'roboto_regular';
     src: url('/assets/fonts/roboto_regular.ttf');
 }
-
+@font-face {
+  font-family: 'Helvetica';
+    src: url('/assets/fonts/Helvetica.ttf');
+}
 .ionCard{margin-top:50px;margin-left:35px;max-width: 340px;}
 .ionCardLogin{margin-top:15px;margin-left:5px;max-width: 352px;}
 .etiqueta{
-  font-size: 12px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 12px; font-family: 'Helvetica';
 }
 
 .etiqueta_titulo{
-  font-weight: bolder;font-size: 12px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bolder;font-size: 12px; font-family: 'Helvetica';
 }
 .rotate-90{
   display: inline-block;
@@ -65,7 +68,7 @@
 .atencion{color:#8C1B24;}
 
 ion-toast.mensaje-toast {
-  --background: #2c0e4ccc;
+  --background: #6742e0d5;
   --box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
   --color: #FFF;
   font-weight: bold;
@@ -96,3 +99,6 @@ ion-toast.warning-toast::part(message) {
 }
 
 .nuevo_vuelo{min-width:250px;}
+.sc-ion-buttons-md-h {
+  color: #6742e0d5;
+}

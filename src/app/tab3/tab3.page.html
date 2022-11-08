@@ -18,12 +18,12 @@
 <ion-card >
 
   <ion-row class="etiqueta">
-<ion-col size="5"><span style="font-weight: bold;color:#2c0e4c">SALIDA / DESTINO</span></ion-col>
+<ion-col size="5"><span style="font-weight: bold;color:#6742e0d5">SALIDA / DESTINO</span></ion-col>
 
-<ion-col size="4"><span style="font-weight: bold;color:#2c0e4c">DESCRIPCIÓN</span></ion-col>
+<ion-col size="4"><span style="font-weight: bold;color:#6742e0d5">DESCRIPCIÓN</span></ion-col>
 
-<ion-col size="3" style="text-align:center;"><span style="font-weight: bold;color:#2c0e4c">ACCIÓN
-  &nbsp;&nbsp;<ion-icon style="font-weight: bold;color:#2c0e4c;font-size: 20px;" name="refresh-outline" (click)="getReservasDisponibles();"></ion-icon></span></ion-col>
+<ion-col size="3" style="text-align:center;"><span style="font-weight: bold;color:#6742e0d5">ACCIÓN
+  &nbsp;&nbsp;<ion-icon style="font-weight: bold;color:#6742e0d5;font-size: 20px;" name="refresh-outline" (click)="getReservasDisponibles();"></ion-icon></span></ion-col>
 </ion-row></ion-card>
           <ion-card *ngFor="let consulta of reservas">
           <ion-row class="etiqueta">
@@ -42,7 +42,7 @@
  <ion-col size="3" style="text-align:center;">
                      <ion-label  (click)="abrirChat(consulta.idPILOTOS_RESERVAS,consulta.idPILOTOS,
                      consulta.idUSUARIO,consulta.MAIL_PASAJERO,consulta.NOMBRE_PILOTO);" *ngIf="consulta.ESTADO_RESERVA==='PAGO' && consulta.ESTADO_VIAJE==='PENDIENTE'">
-                     <br/><ion-icon name="chatbubble-ellipses-outline" style="color:#2c0e4c;font-size:22px;">
+                     <br/><ion-icon name="chatbubble-ellipses-outline" style="color:#6742e0d5;font-size:22px;">
                     </ion-icon>
                     &nbsp;<br/>
                     Chatear con {{consulta.NOMBRE_PASAJERO}}
@@ -52,7 +52,7 @@
 
                   <ion-label  (click)="mensajeProcesandoPago(consulta.NOMBRE_PASAJERO);" *ngIf="consulta.ESTADO_RESERVA==='NO_PAGO'" class="etiqueta">
                     <br/><ion-icon  name="time-outline"
-                    style="font-size:22px;color:#2c0e4c;">
+                    style="font-size:22px;color:#6742e0d5;">
                     </ion-icon>&nbsp;<br/>
                     Procesando pago
                   </ion-label>
