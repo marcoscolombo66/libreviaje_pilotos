@@ -6,6 +6,7 @@ import { FormBuilder,Validators,FormGroup } from '@angular/forms';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { ToastController, NavController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
+import { Location } from "@angular/common";
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -15,14 +16,16 @@ export class HomePage implements OnInit {
   public registroForm: FormGroup;
   idUSUARIO: any;
   constructor(public modalCtrl: ModalController,public http: HttpClient,
-    public toast: ToastController,public fb: FormBuilder,public storage: Storage,
+    private location: Location,public toast: ToastController,public fb: FormBuilder,public storage: Storage,
     public inicia: IniciarusuarioService) {
       this.registroForm = this.fb.group({
         tipoConsulta:['',[Validators.required,Validators.minLength(3)]],
         consulta:['',[Validators.required,Validators.minLength(3)]]
       });
 }
-
+myBackButton(){
+  this.location.back();
+}
 async guardar()
       {
 

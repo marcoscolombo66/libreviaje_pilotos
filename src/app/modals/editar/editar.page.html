@@ -1,92 +1,79 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title class="etiqueta"><h2>EDITAR VUELO</h2></ion-title>
-    <ion-buttons slot="end">
+  <ion-toolbar>       
+    <ion-buttons slot="start">
       <ion-button (click)="canDismiss()">&nbsp;X&nbsp;</ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="guardar()" [strong]="true">Guardar</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <ion-grid>
-    <ion-row><ion-col size="1"></ion-col></ion-row>
-    <ion-row>
-      <ion-col size="1"></ion-col>
-      <ion-col size="11">
+  <ion-grid class="fullheight xc">
+   <ion-row>      
+      <ion-col>
           <ion-row>
-            <ion-col class="etiqueta_titulo" size="6">SALIDA</ion-col>
-            <ion-col class="etiqueta_titulo" size="6">DESTINO</ion-col>
+            <ion-col class="etiqueta_titulo" size="12">&nbsp;</ion-col>                       
           </ion-row>
+          <ion-row>
+            <ion-col class="etiqueta_titulo" size="6">SALIDA</ion-col> 
+            <ion-col class="etiqueta_titulo" size="6">DESTINO</ion-col>           
+          </ion-row>
+          <ion-row>
+            <ion-col class="etiqueta" size="6">{{salida}}</ion-col>          
+            <ion-col class="etiqueta" size="6">{{destino}}</ion-col>          
+          </ion-row>
+          <ion-row>
+            <ion-col class="etiqueta_titulo" size="12">DIA / HORA</ion-col>          
+          </ion-row>
+          <ion-row>
+            <ion-col class="etiqueta" size="12">
+                  <ion-input style="font-size:16px;--placeholder-color: currentColor;
+                  --placeholder-opacity: 0.33;" placeholder="¿Qué dia y a qué hora salís?"
+                    value="{{ date | date: 'yyyy-MM-dd HH:mm:ss' }}"
+                    id="date"></ion-input>
+                  <ion-popover trigger="date" size="cover">
+                    <ng-template>
+                      <ion-datetime
+                        presentation="date-time"
+                        [(ngModel)]="date"
+                      ></ion-datetime>
+                    </ng-template>
+                  </ion-popover>
+                  <ion-list>
+                  </ion-list>
+            </ion-col>         
+          </ion-row>
+        
         <ion-row>
-          <ion-col class="etiqueta" size="6">
-            <ion-label>{{salida}}</ion-label>
-           </ion-col>
-          <ion-col class="etiqueta" size="6">
-            <ion-label>{{destino}}</ion-label>
-           </ion-col>
+          <ion-col class="etiqueta_titulo" size="12">AVION: {{txtavion}} - {{txtavionMod}}</ion-col>
         </ion-row>
         <ion-row>
-          <ion-col class="etiqueta_titulo" size="7">DIA / HORA</ion-col>
-          <ion-col class="etiqueta_titulo" size="5">AVION: {{txtavion}} - {{txtavionMod}}</ion-col>
-
+          <ion-select  [(ngModel)]="avion" interface="action-sheet" placeholder="¿En qué avion vas a volar?">
+            <ion-select-option  *ngFor="let avion of aviones;" [value]="avion">{{avion.MARCA}} - {{avion.MODELO}}</ion-select-option>
+          </ion-select>
+        </ion-row>        
+        <ion-row>
+          <ion-col class="etiqueta_titulo" size="12">CANTIDAD DE ASIENTOS</ion-col>
         </ion-row>
         <ion-row>
-          <ion-col class="etiqueta" size="7">
-                <ion-input style="font-size:16px;--placeholder-color: currentColor;
-                --placeholder-opacity: 0.33;" placeholder="¿Qué dia y a qué hora salís?"
-                  value="{{ date | date: 'yyyy-MM-dd HH:mm:ss' }}"
-                  id="date"></ion-input>
-                <ion-popover trigger="date" size="cover">
-                  <ng-template>
-                    <ion-datetime
-                      presentation="date-time"
-                      [(ngModel)]="date"
-                    ></ion-datetime>
-                  </ng-template>
-                </ion-popover>
-          </ion-col>
-          <ion-col class="etiqueta" size="5">
-            <ion-list>
-
-              <ion-item>
-                <ion-select  [(ngModel)]="avion" interface="action-sheet" placeholder="¿En qué avion vas a volar?">
-                  <ion-select-option  *ngFor="let avion of aviones;" [value]="avion">{{avion.MARCA}} - {{avion.MODELO}}</ion-select-option>
-
-                </ion-select>
-              </ion-item>
-            </ion-list>
-            </ion-col>
-
-        </ion-row>
-
-        <ion-row>
-          <ion-col class="etiqueta_titulo" size="6">CANTIDAD DE ASIENTOS</ion-col>
-          <ion-col class="etiqueta_titulo" size="6">PRECIO C/ASIENTO (USD)</ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col class="etiqueta" size="6">
-                <ion-input   [(ngModel)]="cantidadAsientosq"
-                inputmode="numeric" min="1" type="number" ></ion-input>
-           </ion-col>
-           <ion-col class="etiqueta" size="6">
-            <ion-input [(ngModel)]="precio" step="50" inputmode="numeric" min="100" type="number" placeholder="Precio por cada asiento"></ion-input>
+          <ion-col class="etiqueta" size="12">
+            <ion-input   [(ngModel)]="cantidadAsientosq"
+            inputmode="numeric" min="1" type="number" ></ion-input>
           </ion-col>
         </ion-row>
-
-
-
-
-          <ion-row>
-            <ion-col class="etiqueta" size="3"></ion-col>
-            <ion-col class="etiqueta" size="9">
-              <ion-button class="botones" shape="round"  (click)="guardar();">GUARDAR</ion-button>
-            </ion-col>
-          </ion-row>
-
-
-
+        <ion-row>          
+          <ion-col class="etiqueta_titulo" size="12">PRECIO C/ASIENTO (USD)</ion-col>
+        </ion-row>
+        <ion-row>          
+          <ion-col class="etiqueta" size="12">
+              <ion-input [(ngModel)]="precio" step="50" inputmode="numeric" min="100" type="number" placeholder="Precio por cada asiento"></ion-input>
+          </ion-col>
+        </ion-row>
+         
+        <ion-row><ion-col>&nbsp;</ion-col></ion-row>
 </ion-col>
-<ion-col></ion-col>
 </ion-row></ion-grid>
 </ion-content>

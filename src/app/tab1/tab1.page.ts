@@ -12,6 +12,7 @@ import { interval} from 'rxjs';
 import { ToastController, NavController } from '@ionic/angular';
 import { MenuController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
+import { Location } from "@angular/common";
 @Component({
   selector: 'app-tab1',
   templateUrl: './tab1.page.html',
@@ -42,7 +43,7 @@ export class Tab1Page implements OnInit {
 
   showBoton: any;
   constructor(
-    public fb: FormBuilder, public http: HttpClient,public Str: Storage,
+    private location: Location,public fb: FormBuilder, public http: HttpClient,public Str: Storage,
     private route: ActivatedRoute,public alertController: AlertController,
     private modalCtrl: ModalController,public menuCtrl: MenuController,
     public inicia: IniciarusuarioService, public navCtrl: NavController)
@@ -95,7 +96,9 @@ export class Tab1Page implements OnInit {
     this.getViajesDisponibles();
 
   }
-
+  myBackButton(){
+    this.location.back();
+  }
    padTo2Digits(num) {
     return num.toString().padStart(2, '0');
   }

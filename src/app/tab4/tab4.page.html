@@ -2,19 +2,24 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    &nbsp;
-      <img src='assets/logo_top.png'
-      style="padding-top: 5px; padding-bottom: 2px; width: 20%; height: 20%;max-width:87px;max-height:43px"/>
+    </ion-buttons>          
+    <img src='assets/logo_top.png'
+      style="padding-top: 5px; padding-bottom: 2px; width: 23%; height: 23%;max-width:87px;max-height:43px"/>
+    
   </ion-toolbar>
 </ion-header>
 
-<ion-content><ion-grid>
+<ion-content><ion-grid class="fullheight xc">
   <ion-row>
     <ion-col ></ion-col>
     <ion-col style="min-width:350px;">
 <ion-card class="ionCardLogin">
-<form [formGroup]="registroForm" (submit)="guardar()">
+  <ion-toolbar> 
+    <ion-back-button defaultHref="/tab1" (click)="myBackButton();" slot="start" color="primary"></ion-back-button>
+    <ion-buttons slot="end">
+    <ion-button (click)="guardar()" [strong]="true">Guardar</ion-button>
+  </ion-buttons></ion-toolbar> 
+<form [formGroup]="registroForm">
   <ion-card-content>
 
     <ion-card-header>
@@ -29,41 +34,34 @@
 
         <ion-card-title class="etiqueta">
           <ion-row>
-            <ion-col class="etiqueta" size="6">NOMBRE Y APELLIDO</ion-col>
+            <ion-col class="etiqueta" size="12"><strong>EMPRESA</strong></ion-col>
           </ion-row>
           <ion-row>
-            <ion-col class="etiqueta" size="6"><ion-input formControlName="nombre" placeholder="Ingresar nombre"></ion-input></ion-col>
-          </ion-row>
-        </ion-card-title>
-
-        <ion-card-title class="etiqueta">
-          <ion-row>
-            <ion-col class="etiqueta" size="6">WHATSAPP</ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col class="etiqueta" size="6"><ion-input formControlName="whatsapp" placeholder="Ingresar whatsapp"></ion-input></ion-col>
+            <ion-col class="etiqueta" size="12"><ion-input formControlName="nombre" placeholder="Ingresar nombre empresa"></ion-input></ion-col>
           </ion-row>
         </ion-card-title>
 
         <ion-card-title class="etiqueta">
           <ion-row>
-            <ion-col class="etiqueta" size="6">MENSAJE BIENVENIDA</ion-col>
+            <ion-col class="etiqueta" size="12"><strong>WHATSAPP</strong></ion-col>
           </ion-row>
           <ion-row>
-            <ion-col class="etiqueta" size="6">
+            <ion-col class="etiqueta" size="12"><ion-input formControlName="whatsapp" placeholder="Ingresar whatsapp"></ion-input></ion-col>
+          </ion-row>
+        </ion-card-title>
+
+        <ion-card-title class="etiqueta">
+          <ion-row>
+            <ion-col class="etiqueta" size="12"><strong>MENSAJE CHAT</strong></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="etiqueta" size="12">
               <ion-textarea class="etiqueta" formControlName="mensaje_bienvenida" placeholder="Ingresar mensaje de bienvenida para el chat."></ion-textarea>
             </ion-col>
           </ion-row>
         </ion-card-title>
 
-        <ion-card-title class="etiqueta">
-          <ion-row>
-            <ion-col class="etiqueta" size="12">
-              <ion-button class="botones" shape="round"  type="submit">GUARDAR</ion-button>
-            </ion-col>
-          </ion-row>
-
-        </ion-card-title>
+         
 
 
 </ion-card-header>

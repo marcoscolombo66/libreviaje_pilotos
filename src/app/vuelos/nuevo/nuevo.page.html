@@ -1,17 +1,22 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header> 
+  <ion-toolbar> 
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    &nbsp;
-      <img src='assets/logo_top.png'
-      style="padding-top: 5px; padding-bottom: 2px; width: 20%; height: 20%;max-width:87px;max-height:43px"/>
+    </ion-buttons>      
+    <img src='assets/logo_top.png'
+    style="padding-top: 5px; padding-bottom: 2px; width: 35%; height: 35%;max-width:87px;max-height:43px"/>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
   <ion-grid>
+    <ion-card>
+      <ion-toolbar> 
+        <ion-back-button defaultHref="/tab1" (click)="myBackButton();" slot="start" color="primary"></ion-back-button>
+        <ion-buttons slot="end">
+        <ion-button (click)="guardar()" [strong]="true">PUBLICAR</ion-button>
+      </ion-buttons></ion-toolbar>
     <ion-row>
       <ion-col size="1"></ion-col>
       <ion-col size="11">
@@ -21,7 +26,7 @@
     <ion-row>
       <ion-col class="etiqueta" size="12">
             <ion-input style="min-width:250px;font-size:16px;--placeholder-color: currentColor;
-            --placeholder-opacity: 0.33;" placeholder="¿Qué dia y a qué hora salís?"
+            --placeholder-opacity: 0.33;" placeholder="¿Qué dia y a qué hora sale el avión?"
               value="{{ date | date: 'yyyy-MM-dd HH:mm:ss' }}"
               id="date"></ion-input>
             <ion-popover trigger="date" size="cover">
@@ -41,7 +46,7 @@
             <ion-col class="etiqueta" size="12">
             <ion-list>
               <ion-item>
-                <ion-select  class="nuevo_vuelo" [(ngModel)]="salida" interface="action-sheet" placeholder="¿Desde dónde salis">
+                <ion-select  class="nuevo_vuelo" [(ngModel)]="salida" interface="action-sheet" placeholder="¿Desde dónde sale?">
                   <ion-select-option *ngFor="let lugar of lugares" [value]="lugar">{{lugar.DESCRIPCION}}</ion-select-option>
 
                 </ion-select>
@@ -58,7 +63,7 @@
           <ion-col class="etiqueta" size="12">
           <ion-list>
             <ion-item>
-              <ion-select   class="nuevo_vuelo" [(ngModel)]="destino" interface="action-sheet" placeholder="¿Hacia dónde vas?">
+              <ion-select   class="nuevo_vuelo" [(ngModel)]="destino" interface="action-sheet" placeholder="¿Hacia dónde va?">
                 <ion-select-option *ngFor="let lugar of lugares" [value]="lugar">{{lugar.DESCRIPCION}}</ion-select-option>
 
               </ion-select>
@@ -73,7 +78,7 @@
           <ion-col class="etiqueta" size="12">
           <ion-list>
             <ion-item>
-              <ion-select  class="nuevo_vuelo" [(ngModel)]="avion" interface="action-sheet" placeholder="¿En qué avion vas a volar?">
+              <ion-select  class="nuevo_vuelo" [(ngModel)]="avion" interface="action-sheet" placeholder="¿Qué avion esta disponible?">
                 <ion-select-option *ngFor="let avion of aviones" [value]="avion">{{avion.MARCA}} - {{avion.MODELO}}</ion-select-option>
 
               </ion-select>
@@ -88,7 +93,7 @@
           <ion-col class="etiqueta" size="12">
           <ion-list>
             <ion-item>
-              <ion-input   class="nuevo_vuelo" [(ngModel)]="asientos" inputmode="numeric" min="1" type="number" placeholder="¿Cuantos asientos libres hay?"></ion-input>
+              <ion-input   class="nuevo_vuelo" [(ngModel)]="asientos" inputmode="numeric" min="1" type="number" placeholder="¿Cuantos asientos libres tiene?"></ion-input>
             </ion-item>
           </ion-list>
           </ion-col>
@@ -101,7 +106,7 @@
           <ion-col class="etiqueta" size="12">
           <ion-list>
             <ion-item>
-              <ion-input  class="nuevo_vuelo" [(ngModel)]="precio" step="50" inputmode="numeric" min="100" type="number" placeholder="¿Cuantos dólares vas a cobrar por cada asiento?"></ion-input>
+              <ion-input  class="nuevo_vuelo" [(ngModel)]="precio" step="50" inputmode="numeric" min="100" type="number" placeholder="¿Cuantos dólares cuesta cada asiento?"></ion-input>
             </ion-item>
           </ion-list>
           </ion-col>
@@ -109,16 +114,13 @@
 
 
 
-          <ion-row>
-            <ion-col class="etiqueta" size="1"></ion-col>
-            <ion-col class="etiqueta" size="11">
-              <ion-button class="botones" shape="round"  (click)="guardar();">GUARDAR</ion-button>
-            </ion-col>
-          </ion-row>
+          
 
 
 
 </ion-col>
 
-</ion-row></ion-grid>
+</ion-row>
+</ion-card>
+</ion-grid>
 </ion-content>

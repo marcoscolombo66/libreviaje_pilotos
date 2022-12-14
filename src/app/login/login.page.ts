@@ -29,14 +29,14 @@ export class LoginPage implements OnInit {
     private navCtrl: NavController,public route: ActivatedRoute, public Str: Storage
     ) {
   }
-  login3(form: NgForm){
+   login3(form: NgForm){
     const headers: any		= new HttpHeaders({'Content-Type' : 'application/octet-stream'});
     const EMAIL: any = form.value.usuario;
     const PASSWORD: any = form.value.password;
     // eslint-disable-next-line @typescript-eslint/naming-convention
     const options: any		= {EMAIL,PASSWORD};
     //options 	: any		= { "idNEGOCIOS": '1' };
-    this.okok=(this.http.post('https://www.libreviaje.com/admin/index.php/Api5/iniciarSesion/',
+   this.okok=(this.http.post('https://www.libreviaje.com/admin/index.php/Api5/iniciarSesion/',
     JSON.stringify(options), headers))
     //probar crear otra consulta q devuelva valores location y stopover en api php.
     .subscribe(
@@ -84,8 +84,8 @@ export class LoginPage implements OnInit {
     });
     await alert.present();
   }
-  async ngOnInit() {
-    await this.Str.create();
+   ngOnInit() {
+     this.Str.create();
     this.Str.get('datos_piloto')
     .then((data)=>{
       if(data){

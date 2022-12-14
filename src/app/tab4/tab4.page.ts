@@ -9,6 +9,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { ToastController, NavController } from '@ionic/angular';
 import { MenuController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
+import { Location } from "@angular/common";
 @Component({
   selector: 'app-tab4',
   templateUrl: './tab4.page.html',
@@ -30,7 +31,7 @@ export class Tab4Page implements OnInit {
 
 
   constructor(public modalCtrl: ModalController,public http: HttpClient,public menuCtrl: MenuController,
-    public toast: ToastController,public fb: FormBuilder,public storage: Storage,public inicia: IniciarusuarioService) {
+    private location: Location,public toast: ToastController,public fb: FormBuilder,public storage: Storage,public inicia: IniciarusuarioService) {
 
       this.inicia.verificar();
 
@@ -41,6 +42,9 @@ export class Tab4Page implements OnInit {
     });
 
    }
+   myBackButton(){
+    this.location.back();
+  }
    closeMenu() {
 
     this.menuCtrl.close();

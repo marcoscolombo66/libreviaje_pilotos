@@ -7,7 +7,7 @@ import { FormBuilder,Validators,FormGroup } from '@angular/forms';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { ToastController, NavController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
-
+import { Location } from "@angular/common";
 @Component({
   selector: 'app-nuevo',
   templateUrl: './nuevo.page.html',
@@ -27,7 +27,7 @@ export class NuevoPage implements OnInit {
   idUSUARIO: any;
   emailUSUARIO: any;
   private dateValue: any;
-  constructor(public modalCtrl: ModalController,public http: HttpClient,
+  constructor(private location: Location,public modalCtrl: ModalController,public http: HttpClient,
     public toast: ToastController,public fb: FormBuilder,public storage: Storage,public inicia: IniciarusuarioService) {
 
 
@@ -39,6 +39,9 @@ export class NuevoPage implements OnInit {
     }
     set date(value: any) {
       this.dateValue = value;
+    }
+    myBackButton(){
+      this.location.back();
     }
   ngOnInit() {
     this.inicia.verificar();

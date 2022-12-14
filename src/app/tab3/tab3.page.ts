@@ -5,6 +5,7 @@ import { interval} from 'rxjs';
 import { ModalController, ToastController } from '@ionic/angular';
 import { ComprobantePage } from './../modals/comprobante/comprobante.page';
 import { ChatPage } from './../modals/chat/chat.page';
+import { Location } from "@angular/common";
 @Component({
   selector: 'app-tab3',
   templateUrl: './tab3.page.html',
@@ -16,7 +17,7 @@ export class Tab3Page implements OnInit {
   nomostrar: any;
   reservas: any;
   idUSUARIO: any;
-  constructor(public toast: ToastController,public inicia: IniciarusuarioService,public http: HttpClient, public modalCtrl: ModalController)
+  constructor(private location: Location,public toast: ToastController,public inicia: IniciarusuarioService,public http: HttpClient, public modalCtrl: ModalController)
   {
 
 this.nomostrar=true;
@@ -30,7 +31,9 @@ const numbers = interval(20000);
     this.inicia.verificar();
    this.getReservasDisponibles();
   }
-
+  myBackButton(){
+    this.location.back();
+  }
   abrirEnMapa()
   {
 

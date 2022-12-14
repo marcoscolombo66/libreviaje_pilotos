@@ -102,3 +102,24 @@ ion-toast.warning-toast::part(message) {
 .sc-ion-buttons-md-h {
   color: #6742e0d5;
 }
+.fullheight {
+ // height: 100%;
+}
+
+.xc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vcs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hcs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

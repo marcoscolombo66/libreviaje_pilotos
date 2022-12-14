@@ -5,12 +5,20 @@
     </ion-buttons>
     &nbsp;
       <img src='assets/logo_top.png'
-      style="padding-top: 5px; padding-bottom: 2px; width: 20%; height: 20%;max-width:87px;max-height:43px"/>
+      style="padding-top: 5px; padding-bottom: 2px; width: 23%; height: 23%;max-width:87px;max-height:43px"/>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+   
+  
+    <ion-toolbar> 
+      <ion-back-button defaultHref="/tab1" (click)="myBackButton();" slot="start" color="primary"></ion-back-button>
+      <ion-buttons slot="end">
+     
+    </ion-buttons></ion-toolbar>
+ 
+ 
    <ion-slides  [options]="{  slidesPerView:1, autoplay: {delay: 2500} }" *ngIf="ver!==false">
     <ion-slide *ngFor="let consulta of viajesDisponibles">
       <ion-card class="ionCard">
@@ -36,7 +44,7 @@
          <!-- Podria ir algo...-->
          </ion-card-content>
          <ion-card-content>
-          <ion-button shape="round"  class="botones" *ngIf="okok>consulta.DIA_HORA"
+          <ion-button fill="outline" *ngIf="okok>consulta.DIA_HORA"
           (click)="presentModal(consulta.DESTINO,consulta.PRECIO,consulta.FOTO_DESTINO,
           consulta.ASIENTOS,consulta.ASIENTOS_ORIGEN,consulta.idPILOTOS_DESTINOS,consulta.DIA_HORA,
           consulta.SALIDA,consulta.idAVIONES,consulta.MARCA,consulta.MODELO)">EDITAR</ion-button>

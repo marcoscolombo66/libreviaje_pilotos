@@ -5,7 +5,7 @@
     </ion-buttons>
     &nbsp;
       <img src='assets/logo_top.png'
-      style="padding-top: 5px; padding-bottom: 2px; width: 20%; height: 20%;max-width:87px;max-height:43px"/>
+      style="padding-top: 5px; padding-bottom: 2px; width: 23%; height: 23%;max-width:87px;max-height:43px"/>
 
      </ion-toolbar>
 </ion-header>
@@ -14,7 +14,17 @@
 
 
   <ion-grid *ngIf="nomostrar" >   <!--ESTADOS NUEVOS-->
-
+<ion-card>
+  
+  <ion-toolbar> 
+    
+    <ion-back-button defaultHref="/tab1" (click)="myBackButton();" slot="start" color="primary"></ion-back-button>
+    <ion-buttons slot="end">
+    <ion-button (click)="getReservasDisponibles();" [strong]="true">
+      <ion-icon style="font-weight: bold;color:#6742e0d5;font-size: 20px;" name="refresh-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons></ion-toolbar>
+</ion-card>
 <ion-card >
 
   <ion-row class="etiqueta">
@@ -22,8 +32,8 @@
 
 <ion-col size="4"><span style="font-weight: bold;color:#6742e0d5">DESCRIPCIÓN</span></ion-col>
 
-<ion-col size="3" style="text-align:center;"><span style="font-weight: bold;color:#6742e0d5">ACCIÓN
-  &nbsp;&nbsp;<ion-icon style="font-weight: bold;color:#6742e0d5;font-size: 20px;" name="refresh-outline" (click)="getReservasDisponibles();"></ion-icon></span></ion-col>
+<ion-col size="3" style="text-align:center;">
+  <span style="font-weight: bold;color:#6742e0d5">ACCIÓN</span></ion-col>
 </ion-row></ion-card>
           <ion-card *ngFor="let consulta of reservas">
           <ion-row class="etiqueta">

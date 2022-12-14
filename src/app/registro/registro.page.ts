@@ -24,7 +24,7 @@ export class RegistroPage implements OnInit {
       this.registroForm = this.fb.group({
         usuario:['',[Validators.required,Validators.minLength(5),Validators.email]],
         nombre:['',[Validators.required,Validators.minLength(3)]],
-        apellido:['',[Validators.required,Validators.minLength(3)]],
+        //apellido:['',[Validators.required,Validators.minLength(3)]],
         password:['',[Validators.required,Validators.minLength(6)]],
         whatsapp:['',[Validators.required,Validators.minLength(10),Validators.required,Validators.pattern('^-?[0-9]\\d*(\\.\\d{1,2})?$')]]
       });
@@ -40,7 +40,9 @@ registro()
       // eslint-disable-next-line @typescript-eslint/naming-convention
       EMAIL: this.registroForm.value.usuario,
       PASSWORD: this.registroForm.value.password,
-      NOMBRE_APELLIDO: this.registroForm.value.nombre+' '+this.registroForm.value.apellido,
+      //NOMBRE EMPRESA
+      NOMBRE_APELLIDO: this.registroForm.value.nombre,
+      //NOMBRE_APELLIDO: this.registroForm.value.nombre+' '+this.registroForm.value.apellido,
       TELEFONO: this.registroForm.value.whatsapp
      };
     //options 	: any		= { "idNEGOCIOS": '1' };
